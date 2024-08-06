@@ -7,7 +7,7 @@ export default navbar([
   "/demo/",
   {
     text: "项目",
-    icon: 'rectangle-vertical-history',
+    icon: 'folder',
     prefix: "/posts/",
     children: [
       {
