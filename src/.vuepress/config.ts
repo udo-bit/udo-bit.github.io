@@ -6,7 +6,7 @@ export default defineUserConfig({
   base: "/",
 
   lang: "en-US",
-  title: "Utopia Blog",
+  title: "Utopia",
   description: "stay hungry, stay foolish",
 
   theme,
