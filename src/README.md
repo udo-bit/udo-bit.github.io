@@ -4,8 +4,8 @@ layout: BlogHome
 icon: home
 title: Blog Home
 heroImage: https://theme-hope-assets.vuejs.press/logo.svg
-heroText: The name of your blog
-tagline: You can put your slogan here
+heroText: Dream of Utopia
+tagline:  stay hungry, stay foolish
 heroFullScreen: true
 projects:
   - icon: project
