@@ -1,7 +1,7 @@
 ---
 title: 笔记
 index: false
-icon: code
+icon: "/logo--chrome-web-store.svg"
 category:
   - Guide
 ---
