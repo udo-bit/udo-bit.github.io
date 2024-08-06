@@ -7,3 +7,5 @@ tag:
     - CSS
     - HTML
 ---
+
+<Catalog />

@@ -8,9 +8,9 @@ export default navbar([
   {
     text:"笔记",
     icon:'code',
-    prefix: "/demo/",
+    prefix: "demo/",
     children:[
-      {text:"前端",icon:"front",link:"前端/"},
+      {text:"前端",icon:"front",link:"/前端/"},
     ],
   },
   {
