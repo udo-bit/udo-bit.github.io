@@ -27,7 +27,7 @@ export default hopeTheme({
 
   footer: "Default footer",
 
-  displayFooter: true,
+  displayFooter: false,
 
   encrypt: {
     config: {
