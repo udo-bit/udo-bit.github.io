@@ -55,8 +55,8 @@ export default navbar([
     ],
   },
   {
-    text: "V2 Docs",
-    icon: "book",
-    link: "https://theme-hope.vuejs.press/",
+    text: "博客园",
+    icon: "blog",
+    link: "https://www.cnblogs.com/feel-myself/",
   },
 ]);
