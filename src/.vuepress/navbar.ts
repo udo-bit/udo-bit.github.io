@@ -11,6 +11,10 @@ export default navbar([
     prefix: "demo/",
     children:[
       {text:"前端",icon:"/logos--chrome-web-store.png",link:"前端/"},
+      {text:"后端",icon:"/logos--chrome-web-store.png",link:"后端/"},
+      {text:"安全",icon:"/logos--chrome-web-store.png",link:"安全/"},
+      {text:"移动端",icon:"/logos--chrome-web-store.png",link:"移动端/"},
+      {text:"金融",icon:"/logos--chrome-web-store.png",link:"金融/"},
     ],
   },
   {
