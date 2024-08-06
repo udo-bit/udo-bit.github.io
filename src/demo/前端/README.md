@@ -1,7 +1,7 @@
 ---
 title: 笔记
 index: false
-icon: "/logos--chrome-web-store.png"
+icon: "pen-to-square"
 category:
   - Guide
 ---
