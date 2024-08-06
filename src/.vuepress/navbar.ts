@@ -10,7 +10,7 @@ export default navbar([
     icon: "code",
     prefix: "demo/",
     children:[
-      {text:"前端",icon:"code",link:"/前端/"},
+      {text:"前端",icon:"code",link:"前端/"},
     ],
   },
   {
