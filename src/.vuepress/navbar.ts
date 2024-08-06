@@ -1,5 +1,7 @@
 import { navbar } from "vuepress-theme-hope";
 
+// @ts-ignore
+// @ts-ignore
 export default navbar([
   "/",
   "/demo/",
@@ -15,8 +17,8 @@ export default navbar([
         children: [
           { text: "Apple1", icon: "pen-to-square", link: "1" },
           { text: "Apple2", icon: "pen-to-square", link: "2" },
-          "3",
-          "4",
+          { text: "Apple2", icon: "pen-to-square", link: "3" },
+          { text: "Apple2", icon: "pen-to-square", link: "4" },
         ],
       },
       {
@@ -34,8 +36,16 @@ export default navbar([
             icon: "pen-to-square",
             link: "2",
           },
-          "3",
-          "4",
+          {
+            text: "Banana 2",
+            icon: "pen-to-square",
+            link: "3",
+          },
+          {
+            text: "Banana 2",
+            icon: "pen-to-square",
+            link: "4",
+          },
         ],
       },
       { text: "Cherry", icon: "pen-to-square", link: "cherry" },
