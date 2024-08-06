@@ -1,7 +1,7 @@
 ---
-title: Features demo
+title: 笔记
 index: false
-icon: laptop-code
+icon: notes
 category:
   - Guide
 ---
