@@ -4,7 +4,15 @@ import { navbar } from "vuepress-theme-hope";
 // @ts-ignore
 export default navbar([
   "/",
-  "/demo/",
+  // "/demo/",
+  {
+    text:"笔记",
+    icon:'code',
+    prefix: "/demo/",
+    children:[
+      {text:"前端",icon:"front",link:"前端"},
+    ],
+  },
   {
     text: "项目",
     icon: 'folder',
