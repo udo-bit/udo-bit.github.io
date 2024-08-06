@@ -1,7 +1,7 @@
 ---
 title: 笔记
 index: false
-icon: book
+icon: code
 category:
   - Guide
 ---
