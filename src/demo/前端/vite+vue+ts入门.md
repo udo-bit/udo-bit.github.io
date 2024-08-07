@@ -76,3 +76,40 @@ export default defineConfig({
 ### 2.4 参考资料：
 - 参考：[https://www.cnblogs.com/liujunhang/p/17004528.html](https://www.cnblogs.com/liujunhang/p/17004528.html)
 - 参考：[https://blog.csdn.net/weixin_55555471/article/details/136497926](https://blog.csdn.net/weixin_55555471/article/details/136497926)
+
+## 3. 安装naive-ui组件库
+### 3.1 安装依赖
+```bash
+npm install naive-ui
+```
+### 3.2 配置vite.config.ts
+```typescript
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    vue(),
+    AutoImport({
+      imports: [
+        'vue',
+        {
+          'naive-ui': [
+            'useDialog',
+            'useMessage',
+            'useNotification',
+            'useLoadingBar'
+          ]
+        }
+      ]
+    }),
+    Components({
+      resolvers: [NaiveUiResolver()]
+    })
+  ]
+})
+```
+### 3.3 参考资料：
+- 文档：[https://www.naiveui.com/zh-CN/light/docs/introduction](https://www.naiveui.com/zh-CN/light/docs/introduction)
