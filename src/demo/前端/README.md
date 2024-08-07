@@ -1,5 +1,5 @@
 ---
-title: 笔记
+title: 前端
 index: false
 icon: "pen-to-square"
 category:
