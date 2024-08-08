@@ -15,3 +15,4 @@ category:
 4. 使用vue-router做路由管理
 5. 动态路由
 6. 路由守卫
+7. 使用element-plus做UI组件
