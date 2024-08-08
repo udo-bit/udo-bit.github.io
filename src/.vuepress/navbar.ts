@@ -88,6 +88,21 @@ export default navbar([
         icon:"book",
         link:"https://theme-hope.vuejs.press/zh/",
       },
+      {
+        text:"VITE官方文档",
+        icon:"book",
+        link:"https://cn.vitejs.dev/",
+      },
+      {
+        text:"VUE官方文档",
+        icon:'book',
+        link:"https://cn.vuejs.org/"
+      },
+      {
+        text:"Naive UI官方文档",
+        icon:'book',
+        link:'https://www.naiveui.com/zh-CN/os-theme'
+      }
     ],
   },
 

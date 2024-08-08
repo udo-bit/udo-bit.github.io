@@ -113,3 +113,23 @@ export default defineConfig({
 ```
 ### 3.3 参考资料：
 - 文档：[https://www.naiveui.com/zh-CN/light/docs/introduction](https://www.naiveui.com/zh-CN/light/docs/introduction)
+
+## 4. 配置proxy代理
+### 4.1 配置vite.config.ts
+```typescript
+export default defineConfig({
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  }
+})
+```
+### 4.2 参考资料：
+- 参考：[https://blog.csdn.net/m0_62128476/article/details/139045540](https://blog.csdn.net/m0_62128476/article/details/139045540)
+- 文档：[https://cn.vitejs.dev/config/server-options.html#server-proxy](https://cn.vitejs.dev/config/server-options.html#server-proxy)
+
