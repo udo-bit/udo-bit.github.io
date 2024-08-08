@@ -1,5 +1,5 @@
 ---
-title: vite+vue+ts基础配置
+title: vite+vue+ts 基础配置
 icon: object-group
 order: 1
 category:
