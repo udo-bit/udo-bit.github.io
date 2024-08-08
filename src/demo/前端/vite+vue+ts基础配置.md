@@ -19,7 +19,6 @@ npm install -D vite-plugin-components vite-plugin-style-import
 ```typescript
 
 export default defineConfig({
-  ...
   plugins: [
       vue(),
         AutoImport({
@@ -36,7 +35,6 @@ export default defineConfig({
             dts: 'src/components.d.ts',
         })
   ],
-  ...
 })
 
 ```
@@ -53,13 +51,13 @@ npm i -D @types/node
 ```typescript
 
 export default defineConfig({
-  ...
+  //...
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
     },
   },
-  ...
+  //...
 })
 ```
 ### 2.3 修改tsconfig.json
@@ -132,4 +130,42 @@ export default defineConfig({
 ### 4.2 参考资料：
 - 参考：[https://blog.csdn.net/m0_62128476/article/details/139045540](https://blog.csdn.net/m0_62128476/article/details/139045540)
 - 文档：[https://cn.vitejs.dev/config/server-options.html#server-proxy](https://cn.vitejs.dev/config/server-options.html#server-proxy)
+
+
+## 5. 配置unocss
+### 5.1 安装依赖
+```bash
+npm install -D unocss
+```
+### 5.2 配置vite.config.ts
+```typescript
+// vite.config.ts
+import UnoCSS from 'unocss/vite'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  plugins: [
+    UnoCSS(),
+  ],
+})
+```
+### 5.3 创建uno.config.ts文件
+```typescript
+// uno.config.ts
+import { defineConfig } from 'unocss'
+export default defineConfig({
+  // ...UnoCSS options
+})
+```
+### 5.4 在入口文件中引入uno.css
+```typescript
+// main.ts
+import 'virtual:uno.css'
+```
+### 5.5 参考资料：
+- 文档：[https://unocss.dev/guide/](https://unocss.dev/guide/)
+
+
+
+
 
