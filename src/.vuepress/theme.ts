@@ -5,6 +5,7 @@ import sidebar from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://mister-hope.github.io",
+  favicon:"/logo-custom.png",
 
   author: {
     name: "Mr.Hope",
@@ -12,8 +13,9 @@ export default hopeTheme({
   },
 
   iconAssets: "fontawesome-with-brands",
+  // iconAssets: "iconify",
 
-  logo: "https://theme-hope-assets.vuejs.press/logo.svg",
+  logo: "/logo-custom.png",
 
   repo: "udo-bit/udo-bit.github.io",
 
