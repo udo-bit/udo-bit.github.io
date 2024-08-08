@@ -4,7 +4,7 @@ title: Page Config
 # This is the icon of the page
 icon: file
 # This control sidebar order
-order: 3
+order: 99
 # Set author
 author: Ms.Hope
 # Set writing time

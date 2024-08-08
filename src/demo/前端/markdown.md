@@ -1,7 +1,7 @@
 ---
 title: Markdown Enhance
 icon: fab fa-markdown
-order: 2
+order: 99
 category:
   - Guide
 tag:
