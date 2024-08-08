@@ -38,7 +38,7 @@ export default defineConfig({
 })
 
 ```
-### 1.3 参考资料：
+### 1.3 参考资料
 - 参考：[https://blog.csdn.net/weixin_55776562/article/details/136236256](https://blog.csdn.net/weixin_55776562/article/details/136236256)
 - 参考：[https://blog.csdn.net/shanghai597/article/details/130885636](https://blog.csdn.net/shanghai597/article/details/130885636)
 
@@ -71,7 +71,7 @@ export default defineConfig({
   }
 }
 ```
-### 2.4 参考资料：
+### 2.4 参考资料
 - 参考：[https://www.cnblogs.com/liujunhang/p/17004528.html](https://www.cnblogs.com/liujunhang/p/17004528.html)
 - 参考：[https://blog.csdn.net/weixin_55555471/article/details/136497926](https://blog.csdn.net/weixin_55555471/article/details/136497926)
 
@@ -109,7 +109,7 @@ export default defineConfig({
   ]
 })
 ```
-### 3.3 参考资料：
+### 3.3 参考资料
 - 文档：[https://www.naiveui.com/zh-CN/light/docs/introduction](https://www.naiveui.com/zh-CN/light/docs/introduction)
 
 ## 4. 配置proxy代理
@@ -127,7 +127,7 @@ export default defineConfig({
   }
 })
 ```
-### 4.2 参考资料：
+### 4.2 参考资料
 - 参考：[https://blog.csdn.net/m0_62128476/article/details/139045540](https://blog.csdn.net/m0_62128476/article/details/139045540)
 - 文档：[https://cn.vitejs.dev/config/server-options.html#server-proxy](https://cn.vitejs.dev/config/server-options.html#server-proxy)
 
@@ -162,7 +162,7 @@ export default defineConfig({
 // main.ts
 import 'virtual:uno.css'
 ```
-### 5.5 参考资料：
+### 5.5 参考资料
 - 文档：[https://unocss.dev/guide/](https://unocss.dev/guide/)
 
 

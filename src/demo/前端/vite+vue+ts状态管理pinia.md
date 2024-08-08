@@ -87,7 +87,7 @@ export const useTodos = defineStore('todos', {
 </script>
 ```
 
-## 5. 参考资料：
+## 5. 参考资料
 - 官网：[https://pinia.vuejs.org/zh/](https://pinia.vuejs.org/zh/)
 
 

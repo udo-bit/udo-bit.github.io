@@ -154,6 +154,6 @@ class Http {
 export default new Http(config);
 ```
 
-## 3. 参考资料：
+## 3. 参考资料
 - 参考：[https://blog.csdn.net/weixin_56050344/article/details/137172550](https://blog.csdn.net/weixin_56050344/article/details/137172550)
 - axios文档：[https://axios-http.com/zh/](https://axios-http.com/zh/)
