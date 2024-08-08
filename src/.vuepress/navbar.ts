@@ -75,8 +75,20 @@ export default navbar([
     ],
   },
   {
-    text: "博客园",
-    icon: "blog",
-    link: "https://www.cnblogs.com/feel-myself/",
+    text:"参考",
+    icon:"book",
+    children:[
+      {
+        text: "博客园",
+        icon: "blog",
+        link: "https://www.cnblogs.com/feel-myself/",
+      },
+      {
+        text:"HOPE文档",
+        icon:"book",
+        link:"https://theme-hope.vuejs.press/zh/",
+      },
+    ],
   },
+
 ]);
