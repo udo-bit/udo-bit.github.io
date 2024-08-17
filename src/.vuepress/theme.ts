@@ -12,8 +12,11 @@ export default hopeTheme({
     url: "https://mister-hope.com",
   },
 
-  iconAssets: "fontawesome-with-brands",
-  // iconAssets: "iconify",
+  // iconAssets: "fontawesome",
+  // iconPrefix: "fa-brands fa-",
+  iconAssets:'//at.alicdn.com/t/c/font_4647410_u6yfvsqlja.css',
+  // iconPrefix: "iconfont icon-",
+
 
   logo: "/logo-custom.png",
 

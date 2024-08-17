@@ -1,7 +1,7 @@
 ---
 title: 安全
 index: false
-icon: "pen-to-square"
+icon: "anquan"
 category:
   - Guide
 ---

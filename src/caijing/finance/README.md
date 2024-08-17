@@ -1,7 +1,8 @@
 ---
-title: 金融
+title: 金融相关
 index: false
-icon: "pen-to-square"
+icon: gupiao
+
 category:
   - Guide
 ---
