@@ -1,8 +1,7 @@
 ---
-title: 移动开发
+title: 笔记
+icon: wenjianjia
 index: false
-order: 1
-icon: "yidongduan"
 category:
   - Guide
 ---

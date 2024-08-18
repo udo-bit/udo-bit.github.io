@@ -1,6 +1,6 @@
 ---
-title: vite+vue+ts 封装axios请求
-icon: object-group
+title: 封装axios请求
+icon: code
 order: 2
 category:
   - vue
@@ -15,9 +15,10 @@ npm install axios
 ```
 
 ## 2. 封装axios请求
+
 ```typescript
-import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from "axios";
-import { ElMessage } from "element-plus";
+import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig} from "axios";
+import {ElMessage} from "element-plus";
 
 // axios 请求配置
 const config = {
@@ -25,6 +26,7 @@ const config = {
     baseURL: '/api',
     timeout: 1000
 }
+
 // 定义返回值类型
 export interface Result<T = any> {
     code: number;
@@ -35,12 +37,14 @@ export interface Result<T = any> {
 class Http {
     // axios 实例
     private instance: AxiosInstance;
+
     // 构造函数初始化
     constructor(config: AxiosRequestConfig) {
         this.instance = axios.create(config);
         //定义拦截器
         this.interceptors();
     }
+
     private interceptors() {
         // axios 发送请求之前的处理
         this.instance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
@@ -134,26 +138,35 @@ class Http {
             return Promise.reject(error);
         })
     }
+
     // GET方法
     get<T = Result>(url: string, params?: object): Promise<T> {
-        return this.instance.get(url, { params });
+        return this.instance.get(url, {params});
     }
+
     // POST方法
     post<T = Result>(url: string, data?: object): Promise<T> {
         return this.instance.post(url, data);
     }
+
     // PUT方法
     put<T = Result>(url: string, data?: object): Promise<T> {
-        return this.instance.put(url, data );
+        return this.instance.put(url, data);
     }
+
     // DELETE方法
     delete<T = Result>(url: string): Promise<T> {
         return this.instance.delete(url);
     }
 }
+
 export default new Http(config);
 ```
 
 ## 3. 参考资料
-- 参考：[https://blog.csdn.net/weixin_56050344/article/details/137172550](https://blog.csdn.net/weixin_56050344/article/details/137172550)
+
+-
+
+参考：[https://blog.csdn.net/weixin_56050344/article/details/137172550](https://blog.csdn.net/weixin_56050344/article/details/137172550)
+
 - axios文档：[https://axios-http.com/zh/](https://axios-http.com/zh/)

@@ -1,11 +1,11 @@
 ---
-title: vite+vue+ts 状态管理pinia
-icon: object-group
+title: 状态管理pinia
+icon: code
 order: 3
 category:
   - vue
 tag:
-    - Layout
+  - Layout
 ---
 
 ## 1. 安装pinia
@@ -18,8 +18,8 @@ npm install pinia
 
 ```typescript
 // main.ts
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
+import {createApp} from 'vue'
+import {createPinia} from 'pinia'
 import App from './App.vue'
 
 const pinia = createPinia()
@@ -30,8 +30,9 @@ app.mount('#app')
 ```
 
 ## 3. 创建store
+
 ```typescript
-import { defineStore } from 'pinia'
+import {defineStore} from 'pinia'
 
 export const useTodos = defineStore('todos', {
     state: () => ({
@@ -67,27 +68,31 @@ export const useTodos = defineStore('todos', {
         // 接受任何数量的参数，返回一个 Promise 或不返回
         addTodo(text) {
             // 你可以直接变更该状态
-            this.todos.push({ text, id: this.nextId++, isFinished: false })
+            this.todos.push({text, id: this.nextId++, isFinished: false})
         },
     },
 })
 ```
 
 ## 4. 使用store
+
 ```vue
+
 <script setup>
-  import { storeToRefs } from 'pinia'
+  import {storeToRefs} from 'pinia'
+
   const store = useCounterStore()
   // `name` 和 `doubleCount` 是响应式的 ref
   // 同时通过插件添加的属性也会被提取为 ref
   // 并且会跳过所有的 action 或非响应式 (不是 ref 或 reactive) 的属性
-  const { todos } = storeToRefs(store)
+  const {todos} = storeToRefs(store)
   // 作为 action 的 increment 可以直接解构
-  const { addTodo } = store
+  const {addTodo} = store
 </script>
 ```
 
 ## 5. 参考资料
+
 - 官网：[https://pinia.vuejs.org/zh/](https://pinia.vuejs.org/zh/)
 
 

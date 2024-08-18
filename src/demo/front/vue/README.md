@@ -1,7 +1,7 @@
 ---
-title: 前端
+title: vue
 index: false
-icon: "html5"
+icon: "vue"
 category:
   - Guide
 ---
@@ -9,6 +9,7 @@ category:
 <Catalog />
 
 ## TODOS:
+
 1. 封装axios请求
 2. 设置代理
 3. 使用pinia做全局状态管理
