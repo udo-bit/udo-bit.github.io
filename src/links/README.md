@@ -2,6 +2,7 @@
 title: 网站导航
 icon: 文件夹
 index: false
+cover: /assets/images/cover3.jpg
 category:
   - Guide
 ---
@@ -29,7 +30,7 @@ logo="csdn.svg"
 link="https://www.csdn.net/"
 />
 
-## 工具类
+## 教程类
 
 <VPCard
 title="Mr.Hope"
