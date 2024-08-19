@@ -1,11 +1,4 @@
----
-icon: lock
-category:
-  - Guide
-tag:
-  - encryption
-order: 99
----
+
 
 # Encryption Article
 
