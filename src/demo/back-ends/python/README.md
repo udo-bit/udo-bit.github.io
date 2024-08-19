@@ -1,6 +1,6 @@
 ---
-title: python后端
-icon: vue
+title: python
+icon: python
 index: false
 category:
   - Guide

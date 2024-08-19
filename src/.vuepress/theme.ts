@@ -15,7 +15,7 @@ export default hopeTheme({
 
     // iconAssets: "fontawesome",
     // iconPrefix: "fa-brands fa-",
-    iconAssets: '//at.alicdn.com/t/c/font_4647410_whnkkh1uio.css',
+    iconAssets: '//at.alicdn.com/t/c/font_4647410_bxb5y17mrek.css',
     // iconPrefix: "iconfont icon-",
 
 
@@ -102,7 +102,7 @@ export default hopeTheme({
         // },
 
         components: {
-            components: ["Badge", "VPCard"],
+            components: ["Badge", "VPCard",'PDF'],
         },
 
         // These features are enabled for demo, only preserve features you need here

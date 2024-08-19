@@ -9,33 +9,28 @@ export default navbar([
         text: "技术",
         icon: "kexuejishu-",
         link: "demo/",
-        // children: [
-        //     {text: '概览', icon: 'wenjianjia', link: 'demo/'},
-        //     {text: "前端", icon: "html5", link: "demo/front/"},
-        //     {text: "后端", icon: "houduankaifa", link: "demo/back-ends/"},
-        //     {text: "安全", icon: "anquan", link: "demo/安全/"},
-        //     {text: "移动端", icon: "yidongduan", link: "demo/移动端/"}
-        // ],
     },
+    // {
+    //     text: "财经",
+    //     icon: "jinrong-",
+    //     link: "caijing/",
+    // },
+    // {
+    //     text: '商务',
+    //     icon: 'shangwu',
+    //     link: '/commercial/'
+    // },
     {
-        text: "财经",
-        icon: "jinrong-",
-        link: "caijing/",
-        // children: [
-        //     {text: "金融", icon: "gupiao", link: "finance/"},
-        //     {text: "法律", icon: "falv", link: "law/"},
-        // ]
-    },
-    {
-        text: '商务',
-        icon: 'shangwu',
-        link: '/commercial/'
+        text:'计划',
+        icon:'plan',
+        link:'/plans/'
     },
     {
         text: '友链',
         icon: 'wenjianjia',
         link: '/links/'
     },
+
     {
         text: "参考",
         icon: "book",
