@@ -22,6 +22,13 @@ export default sidebar({
             children: 'structure',
         }
     ],
+    "/others/":[
+        {
+            text:'笔记',
+            icon: "code",
+            children: 'structure'
+        }
+    ],
     '/commercial/': [
         {
             text: '商务',

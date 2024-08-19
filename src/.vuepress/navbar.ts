@@ -26,6 +26,11 @@ export default navbar([
         link:'/plans/'
     },
     {
+        text:'笔记',
+        icon:'code',
+        link:'/others/'
+    },
+    {
         text: '友链',
         icon: 'wenjianjia',
         link: '/links/'

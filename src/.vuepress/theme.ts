@@ -15,7 +15,7 @@ export default hopeTheme({
 
     // iconAssets: "fontawesome",
     // iconPrefix: "fa-brands fa-",
-    iconAssets: '//at.alicdn.com/t/c/font_4647410_bxb5y17mrek.css',
+    iconAssets: '//at.alicdn.com/t/c/font_4647410_aux2etmtryf.css',
     // iconPrefix: "iconfont icon-",
 
 
@@ -93,6 +93,7 @@ export default hopeTheme({
     plugins: {
         blog: true,
 
+
         // Install @waline/client before enabling it
         // Note: This is for testing ONLY!
         // You MUST generate and use your own comment service in production.
@@ -119,6 +120,10 @@ export default hopeTheme({
             mark: true,
             plantuml: true,
             spoiler: true,
+            // GFM警告
+            alert:true,
+            // 脚注
+            footnote:true,
             stylize: [
                 {
                     matcher: "Recommended",
