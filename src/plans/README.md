@@ -5,18 +5,13 @@ index: false
 cover: /assets/images/cover3.jpg
 ---
 
-我的计划
--[ ] 学习markdown基础语法
-- [x] 学习基础
+## 我的计划 2024-08-19~2024-08-26
+
+- [x] 1.学习markdown基础语法
+
+- [x] 2.FastAPI基础学习
 
 
-
-
-
-
-
-
-2. FastAPI 框架入门
 
 
 
