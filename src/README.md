@@ -3,11 +3,12 @@ home: true
 layout: BlogHome
 icon: home
 title: 首页
-bgImage: https://theme-hope-assets.vuejs.press/bg/6-light.svg
-bgImageDark: https://theme-hope-assets.vuejs.press/bg/6-dark.svg
+#bgImage: https://theme-hope-assets.vuejs.press/bg/6-light.svg
+bgImage: /assets/images/cover5.jpg
+bgImageDark: /assets/images/cover4.jpg
 bgImageStyle:
   background-attachment: fixed
-heroImage: https://theme-hope-assets.vuejs.press/logo.svg
+#heroImage: /logo-custom.png
 heroText: Dream of Utopia
 tagline:  stay hungry, stay foolish
 heroFullScreen: true
