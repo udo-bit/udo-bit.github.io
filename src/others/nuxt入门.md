@@ -168,7 +168,7 @@ export default defineNuxtConfig({
 
 ### 5. 路由
 
-### 5.1 基本路由
+#### 5.1 基本路由
 
 1. nuxt约定将pages目录下的文件自动注册为路由
 2. 导航：nuxt使用<NuxtLink/>组件代替vue-router的<router-link/>组件
@@ -186,7 +186,7 @@ export default defineNuxtConfig({
 </script>
 ```
 
-### 5.2 路由中间件
+#### 5.2 路由中间件
 
 nuxt中的路由中间件共分为三种，分别是全局中间件、匿名中间件和命名中间件,其中全局中间件和命名中间件位于middleware目录下，匿名中间件位于pages目录下,
 全局中间件以.global.ts结尾
@@ -214,7 +214,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 </template>
 ```
 
-### 5.3 路由守卫
+#### 5.3 路由守卫
 
 如果validate返回false，Nuxt将会显示404页面
 
