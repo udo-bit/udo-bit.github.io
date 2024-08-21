@@ -127,9 +127,10 @@ export default defineNitroPlugin((nitroApp) => {
 
 使用时直接用根路径符接相对路径即可，此目录下的文件会被复制到dist目录下
 
-```app.vue
+```vue
+
 <template>
-  <img src="/img/nuxt.png" alt="Discover Nuxt 3" />
+  <img src="/img/nuxt.png" alt="Discover Nuxt 3"/>
 </template>
 ```
 
@@ -137,9 +138,10 @@ export default defineNitroPlugin((nitroApp) => {
 
 此目录下的文件会在打包时被处理，如压缩、转换等，使用时需要用~符号接相对路径
 
-```app.vue
+```vue
+
 <template>
-  <img src="~/assets/img/nuxt.png" alt="Discover Nuxt 3" />
+  <img src="~/assets/img/nuxt.png" alt="Discover Nuxt 3"/>
 </template>
 ```
 
@@ -171,7 +173,7 @@ export default defineNuxtConfig({
 #### 5.1 基本路由
 
 1. nuxt约定将pages目录下的文件自动注册为路由
-2. 导航：nuxt使用<NuxtLink/>组件代替vue-router的<router-link/>组件
+2. 导航：nuxt使用`<NuxtLink/>`组件代替vue-router的`<router-link/>`组件
 3. 获取路由参数：使用useRoute()
 
 ```vue
@@ -219,7 +221,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 如果validate返回false，Nuxt将会显示404页面
 
 ```vue
-// pages/posts/[id].vue
+
 <script setup lang="ts">
   definePageMeta({
     validate: async (route) => {
@@ -235,7 +237,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
 #### 6.1 useHead
 
 ```vue
-// app.vue
+
 <script setup lang="ts">
   useHead({
     title: 'My App',
