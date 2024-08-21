@@ -1,6 +1,7 @@
 ---
 title: NuxtJS
 icon: nuxtjs
+
 ---
 
 ## NuxtJS入门
