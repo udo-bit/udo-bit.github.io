@@ -1,6 +1,3 @@
-
-
-
 run:
 	pnpm docs:dev
 
