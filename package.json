@@ -17,6 +17,8 @@
     "vuepress-theme-hope": "2.0.0-rc.52"
   },
   "dependencies": {
-    "@vuepress/plugin-shiki": "2.0.0-rc.0"
+    "@kangc/v-md-editor": "^1.7.12",
+    "@vuepress/plugin-shiki": "2.0.0-rc.0",
+    "vue3-pdf-app": "^1.0.3"
   }
 }
