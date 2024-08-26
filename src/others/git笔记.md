@@ -184,4 +184,41 @@ git branch --merged <branch_name> # 查看已经合并到某个分支的分支,�
 > `git branch -d <branch_name>`
 > 删除分支时，如果分支没有合并到当前分支，会提示错误信息，此时可以使用`git branch -D <branch_name>`强制删除分支
 
-### 3.2 分支策略
+### 3.2 远程分支
+
+```shell
+# 推送
+git push <remote> <branch> # 推送分支到远程仓库
+git push origin serverfix:awesomebranch # 推送本地分支到远程仓库并重命名
+# 跟踪
+git checkout -b serverfix origin/serverfix # 拉取远程分支并创建本地分支
+git branch -u origin/serverfix # 设置本地分支跟踪远程分支
+git checkout -b <branch> <remote>/<branch> # 跟踪远程分支并创建本地分支
+git checkout --track origin/serverfix # 跟踪远程分支
+git checkout serverfix # 创建跟踪分支
+git branch -vv # 查看本地分支跟踪的远程分支
+git branch --set-upstream-to origin/serverfix
+# 拉取
+git pull # 拉取远程分支并合并到当前分支
+git pull origin serverfix # 拉取远程分支并合并到当前分支
+# 删除
+git push origin --delete <branch> # 删除远程分支
+```
+
+### 3.3 变基
+
+```shell
+# 执行步骤
+git rebase <branch> # 变基
+git checkout <branch> # 切换到目标分支
+git merge <branch> # 合并
+# --onto
+git rebase --onto <branch1> <branch2> <branch3> # 将branch3上的提交移动到branch1上,并且不包含branch2上的提交
+git rebase <basebranch> <topicbranch> # 将topicbranch上的提交移动到basebranch上
+```
+
+> [!note]
+> 变基和合并的区别：合并会保留提交历史，而变基会将提交历史整理成一条直线
+
+
+
