@@ -183,3 +183,5 @@ git branch --merged <branch_name> # 查看已经合并到某个分支的分支,�
 > [!warning]
 > `git branch -d <branch_name>`
 > 删除分支时，如果分支没有合并到当前分支，会提示错误信息，此时可以使用`git branch -D <branch_name>`强制删除分支
+
+### 3.2 分支策略
