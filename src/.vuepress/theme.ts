@@ -15,7 +15,7 @@ export default hopeTheme({
 
     // iconAssets: "fontawesome",
     // iconPrefix: "fa-brands fa-",
-    iconAssets: '//at.alicdn.com/t/c/font_4647410_3piicbrgqoj.css',
+    iconAssets: '//at.alicdn.com/t/c/font_4647410_43dvd8ik6ls.css',
     // iconPrefix: "iconfont icon-",
 
 
@@ -103,7 +103,7 @@ export default hopeTheme({
         // },
 
         components: {
-            components: ["Badge", "VPCard",'PDF'],
+            components: ["Badge", "VPCard", 'PDF'],
         },
 
         // These features are enabled for demo, only preserve features you need here
@@ -121,9 +121,9 @@ export default hopeTheme({
             plantuml: true,
             spoiler: true,
             // GFM警告
-            alert:true,
+            alert: true,
             // 脚注
-            footnote:true,
+            footnote: true,
             stylize: [
                 {
                     matcher: "Recommended",
