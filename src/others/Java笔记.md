@@ -7,6 +7,7 @@ category:
 
 ## String
 
+
 1. `public boolean equals(Object anObject)` 比较字符串的内容，严格区分大小写
 2. `public boolean equalsIgnoreCase(String anotherString)` 比较字符串的内容，忽略大小写
 3. `public int length()` 返回此字符串的长度
