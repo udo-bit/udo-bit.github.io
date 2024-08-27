@@ -5,6 +5,20 @@ category:
   - Java
 ---
 
+## String
+
+
+1. `public boolean equals(Object anObject)` 比较字符串的内容，严格区分大小写
+2. `public boolean equalsIgnoreCase(String anotherString)` 比较字符串的内容，忽略大小写
+3. `public int length()` 返回此字符串的长度
+4. `public char charAt(int index)` 返回指定索引处的 char 值
+5. `public char[] toCharArray()` 将字符串拆分为字符数组后返回
+6. `public String substring(int beginIndex, int endIndex)` 根据开始和结束索引进行截取，得到新的字符串（包含头，不包含尾）
+7. `public String substring(int beginIndex)` 从传入的索引处截取，截取到末尾，得到新的字符串
+8. `public String replace(CharSequence target, CharSequence replacement)` 使用新值，将字符串中的旧值替换，得到新的字符串
+9. `public String[] split(String regex)` 根据传入的规则切割字符串，得到字符串数组
+
+
 ## Integer
 
 1. `public static Integer valueOf(int i)`: 返回表示指定的 int 值的 Integer 实例。
