@@ -24,6 +24,7 @@ cover: /assets/images/cover3.jpg
     - [ ] 2.3 mybatis
     - [ ] 2.4 spring
     - [ ] 2.5 springBoot
+    - [ ] 2.6 springCloud
 
 
 
