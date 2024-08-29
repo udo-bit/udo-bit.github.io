@@ -310,11 +310,11 @@ public void testSelectAll() throws IOException {
      <result column="brand_name" property="brandName"/>
      <result column="company_name" property="companyName"/>
 </resultMap>
+
 <select id="selectAll" resultMap="brandResultMap">
     select *
     from tb_brand;
 </select>
-
 ```
 
 

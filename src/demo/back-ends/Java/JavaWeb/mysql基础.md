@@ -94,7 +94,7 @@ https://downloads.mysql.com/archives/community/
 
 选择选择和自己**系统位数**相对应的版本点击右边的`Download`，此时会进到另一个页面，同样在接近页面底部的地方找到如下图所示的位置：
 
-<img src="https://img2018.cnblogs.com/blog/1556823/201812/1556823-20181220194715840-436169502.png" alt="img" style="zoom:80%;" />
+<img src="./assets/436169502.png" alt="img" style="zoom:80%;" />
 
 不用理会上面的登录和注册按钮，直接点击 `No thanks, just start my download.` 就可以下载。
 
