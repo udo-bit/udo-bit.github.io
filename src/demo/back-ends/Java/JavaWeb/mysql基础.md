@@ -108,7 +108,7 @@ https://downloads.mysql.com/archives/community/
 
 ![image-20201109134948046](assets/image-20201109134948046.png)
 
-### 2.2  MySQL卸载
+### 2.2  MySQL卸载 
 
 如果你想卸载MySQL，也很简单。
 
