@@ -203,6 +203,7 @@ UPDATE account set money = money - 500 where name = '李四';
 UPDATE account set money = money + 500 where name = '张三';
 
 -- 提交事务
+
 COMMIT;
 
 -- 回滚事务
