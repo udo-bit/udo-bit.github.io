@@ -13,9 +13,10 @@ export default hopeTheme({
         email: "gaoxiaoliang123@126.com"
     },
 
+
     // iconAssets: "fontawesome",
     // iconPrefix: "fa-brands fa-",
-    iconAssets: '//at.alicdn.com/t/c/font_4647410_43dvd8ik6ls.css',
+    iconAssets: '//at.alicdn.com/t/c/font_4647410_e302o1632va.css',
     // iconPrefix: "iconfont icon-",
 
 
@@ -31,9 +32,9 @@ export default hopeTheme({
     // sidebar
     sidebar,
 
-    footer: "Default footer",
+    footer: "本站内容仅供交流学习使用，不构成任何决策建议，如有侵权，立即删除",
 
-    displayFooter: false,
+    displayFooter: true,
 
     encrypt: {
         config: {
