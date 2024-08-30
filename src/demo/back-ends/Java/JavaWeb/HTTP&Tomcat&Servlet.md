@@ -1,5 +1,5 @@
 ---
-title: HTTP&Tomcat&Servlet
+title: HTTP、Tomcat和Servlet
 icon: code
 category: Java
 order: 6
