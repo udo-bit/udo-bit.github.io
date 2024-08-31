@@ -17,9 +17,9 @@ tag:
   - Page config
   - Guide
 # this page is sticky in article list
-sticky: true
+#sticky: true
 # this page will appear in starred articles
-star: true
+#star: true
 # You can customize footer content
 footer: Footer content for test
 # You can customize copyright content

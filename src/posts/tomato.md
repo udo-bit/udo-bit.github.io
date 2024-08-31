@@ -7,8 +7,8 @@ category:
 tag:
   - red
   - round
-star: true
-sticky: true
+#star: true
+#sticky: true
 ---
 
 # Tomato
