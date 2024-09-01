@@ -5,7 +5,7 @@ order: 1
 category: SpringMVC
 ---
 
-## 今日目标
+## 学习目标
 
 - [ ] 能够知道SpringMVC的优点
 - [ ] 能够编写SpringMVC入门案例

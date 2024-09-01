@@ -1,6 +1,6 @@
 ---
 title: SpringBoot
-icon: java
+icon: spring-boot
 index: false
 order: 3
 ---

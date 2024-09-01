@@ -2,7 +2,7 @@
 title: mybatis基础
 icon: code
 order: 5
-category: Java
+category: Mybatis
 ---
 
 ## Mybatis练习
@@ -16,19 +16,23 @@ category: Java
 
 ![image-20210729111159534](assets/image-20210729111159534.png)
 
-如上图所示产品原型，里面包含了品牌数据的 `查询` 、`按条件查询`、`添加`、`删除`、`批量删除`、`修改` 等功能，而这些功能其实就是对数据库表中的数据进行CRUD操作。接下来我们就使用Mybatis完成品牌数据的增删改查操作。以下是我们要完成功能列表：
+如上图所示产品原型，里面包含了品牌数据的 `查询` 、`按条件查询`、`添加`、`删除`、`批量删除`、`修改`
+等功能，而这些功能其实就是对数据库表中的数据进行CRUD操作。接下来我们就使用Mybatis完成品牌数据的增删改查操作。以下是我们要完成功能列表：
 
 > * 查询
     >   * 查询所有数据
->   * 查询详情
+    >
+* 查询详情
 >   * 条件查询
 > * 添加
 > * 修改
     >   * 修改全部字段
->   * 修改动态字段
+    >
+* 修改动态字段
 > * 删除
     >   * 删除一个
->   * 批量删除
+    >
+* 批量删除
 
 我们先将必要的环境准备一下。
 
@@ -112,7 +116,8 @@ category: Java
 
       <img src="./assets/image-20210729164450524.png" alt="image-20210729164450524" style="zoom:70%;" />
 
-      红色头绳的表示映射配置文件，蓝色头绳的表示mapper接口。在mapper接口点击红色头绳的小鸟图标会自动跳转到对应的映射配置文件，在映射配置文件中点击蓝色头绳的小鸟图标会自动跳转到对应的mapper接口。也可以在mapper接口中定义方法，自动生成映射配置文件中的 `statement` ，如图所示
+      红色头绳的表示映射配置文件，蓝色头绳的表示mapper接口。在mapper接口点击红色头绳的小鸟图标会自动跳转到对应的映射配置文件，在映射配置文件中点击蓝色头绳的小鸟图标会自动跳转到对应的mapper接口。也可以在mapper接口中定义方法，自动生成映射配置文件中的 `statement`
+      ，如图所示
 
       ![image-20210729165337223](assets/image-20210729165337223.png)
 
@@ -213,13 +218,16 @@ public void testSelectAll() throws IOException {
 
 #### 1.2.4  起别名解决上述问题
 
-从上面结果可以看到 `brandName` 和 `companyName` 这两个属性的数据没有封装成功，查询 实体类 和 表中的字段 发现，在实体类中属性名是 `brandName` 和 `companyName` ，而表中的字段名为 `brand_name` 和 `company_name`，如下图所示 。那么我们只需要保持这两部分的名称一致这个问题就迎刃而解。
+从上面结果可以看到 `brandName` 和 `companyName` 这两个属性的数据没有封装成功，查询 实体类 和 表中的字段
+发现，在实体类中属性名是 `brandName` 和 `companyName` ，而表中的字段名为 `brand_name` 和 `company_name`，如下图所示
+。那么我们只需要保持这两部分的名称一致这个问题就迎刃而解。
 
 <img src="./assets/image-20210729173210433.png" alt="image-20210729173210433" style="zoom:80%;" />
 
 我们可以在写sql语句时给这两个字段起别名，将别名定义成和属性名一致即可。
 
 ```xml
+
 <select id="selectAll" resultType="brand">
     select
     id, brand_name as brandName, company_name as companyName, ordered, description, status
@@ -227,7 +235,8 @@ public void testSelectAll() throws IOException {
 </select>
 ```
 
-而上面的SQL语句中的字段列表书写麻烦，如果表中还有更多的字段，同时其他的功能也需要查询这些字段时就显得我们的代码不够精炼。Mybatis提供了`sql` 片段可以提高sql的复用性。
+而上面的SQL语句中的字段列表书写麻烦，如果表中还有更多的字段，同时其他的功能也需要查询这些字段时就显得我们的代码不够精炼。Mybatis提供了`sql`
+片段可以提高sql的复用性。
 
 **SQL片段：**
 
@@ -255,7 +264,8 @@ public void testSelectAll() throws IOException {
 
 #### 1.2.5  使用resultMap解决上述问题
 
-起别名 + sql片段的方式可以解决上述问题，但是它也存在问题。如果还有功能只需要查询部分字段，而不是查询所有字段，那么我们就需要再定义一个 SQL 片段，这就显得不是那么灵活。
+起别名 + sql片段的方式可以解决上述问题，但是它也存在问题。如果还有功能只需要查询部分字段，而不是查询所有字段，那么我们就需要再定义一个
+SQL 片段，这就显得不是那么灵活。
 
 那么我们也可以使用resultMap来定义字段和属性的映射关系的方式解决上述问题。
 
@@ -298,26 +308,25 @@ public void testSelectAll() throws IOException {
 而我们最终选择使用 resultMap的方式。查询映射配置文件中查询所有的 statement 书写如下：
 
 ```xml
- <resultMap id="brandResultMap" type="brand">
-     <!--
-            id：完成主键字段的映射
-                column：表的列名
-                property：实体类的属性名
-            result：完成一般字段的映射
-                column：表的列名
-                property：实体类的属性名
-        -->
-     <result column="brand_name" property="brandName"/>
-     <result column="company_name" property="companyName"/>
+
+<resultMap id="brandResultMap" type="brand">
+    <!--
+           id：完成主键字段的映射
+               column：表的列名
+               property：实体类的属性名
+           result：完成一般字段的映射
+               column：表的列名
+               property：实体类的属性名
+       -->
+    <result column="brand_name" property="brandName"/>
+    <result column="company_name" property="companyName"/>
 </resultMap>
 
 <select id="selectAll" resultMap="brandResultMap">
-    select *
-    from tb_brand;
+select *
+from tb_brand;
 </select>
 ```
-
-
 
 ### 1.3  查询详情
 
@@ -361,7 +370,8 @@ Brand selectById(int id);
 在 `BrandMapper.xml` 映射配置文件中编写 `statement`，使用 `resultMap` 而不是使用 `resultType`
 
 ```xml
-<select id="selectById"  resultMap="brandResultMap">
+
+<select id="selectById" resultMap="brandResultMap">
     select *
     from tb_brand where id = #{id};
 </select>
@@ -405,7 +415,8 @@ public void testSelectById() throws IOException {
 
 #### 1.3.4  参数占位符
 
-查询到的结果很好理解就是id为1的这行数据。而这里我们需要看控制台显示的SQL语句，能看到使用？进行占位。说明我们在映射配置文件中的写的 `#{id}` 最终会被？进行占位。接下来我们就聊聊映射配置文件中的参数占位符。
+查询到的结果很好理解就是id为1的这行数据。而这里我们需要看控制台显示的SQL语句，能看到使用？进行占位。说明我们在映射配置文件中的写的 `#{id}`
+最终会被？进行占位。接下来我们就聊聊映射配置文件中的参数占位符。
 
 mybatis提供了两种参数占位符：
 
@@ -431,6 +442,7 @@ mybatis提供了两种参数占位符：
 对于有参数的mapper接口方法，我们在映射配置文件中应该配置 `ParameterType` 来指定参数类型。只不过该属性都可以省略。如下图：
 
 ```xml
+
 <select id="selectById" parameterType="int" resultMap="brandResultMap">
     select *
     from tb_brand where id = ${id};
@@ -489,13 +501,15 @@ mybatis提供了两种参数占位符：
   List<Brand> selectByCondition(@Param("status") int status, @Param("companyName") String companyName,@Param("brandName") String brandName);
   ```
 
-* 将多个参数封装成一个 实体对象 ，将该实体对象作为接口的方法参数。该方式要求在映射配置文件的SQL中使用 `#{内容}` 时，里面的内容必须和实体类属性名保持一致。
+* 将多个参数封装成一个 实体对象 ，将该实体对象作为接口的方法参数。该方式要求在映射配置文件的SQL中使用 `#{内容}`
+  时，里面的内容必须和实体类属性名保持一致。
 
   ```java
   List<Brand> selectByCondition(Brand brand);
   ```
 
-* 将多个参数封装到map集合中，将map集合作为接口的方法参数。该方式要求在映射配置文件的SQL中使用 `#{内容}` 时，里面的内容必须和map集合中键的名称一致。
+* 将多个参数封装到map集合中，将map集合作为接口的方法参数。该方式要求在映射配置文件的SQL中使用 `#{内容}`
+  时，里面的内容必须和map集合中键的名称一致。
 
   ```
   List<Brand> selectByCondition(Map map);
@@ -506,6 +520,7 @@ mybatis提供了两种参数占位符：
 在 `BrandMapper.xml` 映射配置文件中编写 `statement`，使用 `resultMap` 而不是使用 `resultType`
 
 ```xml
+
 <select id="selectByCondition" resultMap="brandResultMap">
     select *
     from tb_brand
@@ -676,7 +691,7 @@ select * from tb_brand where status = #{status} and company_name like #{companNa
 
 如上图所示，在查询时只能选择 `品牌名称`、`当前状态`、`企业名称` 这三个条件中的一个，但是用户到底选择哪儿一个，我们并不能确定。这种就属于单个条件的动态SQL语句。
 
-这种需求需要使用到  `choose（when，otherwise）标签`  实现，  而 `choose` 标签类似于Java 中的switch语句。
+这种需求需要使用到  `choose（when，otherwise）标签`  实现， 而 `choose` 标签类似于Java 中的switch语句。
 
 通过一个案例来使用这些标签
 
@@ -698,6 +713,7 @@ List<Brand> selectByConditionSingle(Brand brand);
 在 `BrandMapper.xml` 映射配置文件中编写 `statement`，使用 `resultMap` 而不是使用 `resultType`
 
 ```xml
+
 <select id="selectByConditionSingle" resultMap="brandResultMap">
     select *
     from tb_brand
@@ -796,6 +812,7 @@ void add(Brand brand);
 在 `BrandMapper.xml` 映射配置文件中编写添加数据的 `statement`
 
 ```xml
+
 <insert id="add">
     insert into tb_brand (brand_name, company_name, ordered, description, status)
     values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status});
@@ -869,6 +886,7 @@ public void testAdd() throws IOException {
 我们将上面添加品牌数据的案例中映射配置文件里 `statement` 进行修改，如下
 
 ```xml
+
 <insert id="add" useGeneratedKeys="true" keyProperty="id">
     insert into tb_brand (brand_name, company_name, ordered, description, status)
     values (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status});
@@ -878,13 +896,14 @@ public void testAdd() throws IOException {
 > 在 insert 标签上添加如下属性：
 >
 > * useGeneratedKeys：是够获取自动增长的主键值。true表示获取
-> * keyProperty  ：指定将获取到的主键值封装到哪儿个属性里
+> * keyProperty ：指定将获取到的主键值封装到哪儿个属性里
 
 ### 1.7  修改
 
 <img src="./assets/image-20210729222642700.png" alt="image-20210729222642700" style="zoom:80%;" />
 
-如图所示是修改页面，用户在该页面书写需要修改的数据，点击 `提交` 按钮，就会将数据库中对应的数据进行修改。注意一点，如果哪儿个输入框没有输入内容，我们是将表中数据对应字段值替换为空白还是保留字段之前的值？答案肯定是保留之前的数据。
+如图所示是修改页面，用户在该页面书写需要修改的数据，点击 `提交`
+按钮，就会将数据库中对应的数据进行修改。注意一点，如果哪儿个输入框没有输入内容，我们是将表中数据对应字段值替换为空白还是保留字段之前的值？答案肯定是保留之前的数据。
 
 接下来我们就具体来实现
 
@@ -906,6 +925,7 @@ void update(Brand brand);
 在 `BrandMapper.xml` 映射配置文件中编写修改数据的 `statement`。
 
 ```xml
+
 <update id="update">
     update tb_brand
     <set>
@@ -978,7 +998,8 @@ public void testUpdate() throws IOException {
 
 ![image-20210729224205522](assets/image-20210729224205522.png)
 
-从结果中SQL语句可以看出，只修改了 `status`  字段值，因为我们给的数据中只给Brand实体对象的 `status` 属性设置值了。这就是 `set` 标签的作用。
+从结果中SQL语句可以看出，只修改了 `status`  字段值，因为我们给的数据中只给Brand实体对象的 `status`
+属性设置值了。这就是 `set` 标签的作用。
 
 ### 1.8  删除一行数据
 
@@ -1004,6 +1025,7 @@ void deleteById(int id);
 在 `BrandMapper.xml` 映射配置文件中编写删除一行数据的 `statement`
 
 ```xml
+
 <delete id="deleteById">
     delete from tb_brand where id = #{id};
 </delete>
@@ -1047,8 +1069,6 @@ public void testDeleteById() throws IOException {
 
 如上图所示，用户可以选择多条数据，然后点击上面的 `删除` 按钮，就会删除数据库中对应的多行数据。
 
-
-
 #### 1.9.1  编写接口方法
 
 在 `BrandMapper` 接口中定义删除多行数据的方法。
@@ -1082,6 +1102,7 @@ void deleteByIds(int[] ids);
 * close 属性：该属性值是在拼接SQL语句拼接后拼接的语句，只会拼接一次
 
 ```xml
+
 <delete id="deleteByIds">
     delete from tb_brand where id
     in
@@ -1141,25 +1162,27 @@ Mybatis 接口方法中可以接收各种各样的参数，如下：
 
 #### 1.10.1  多个参数
 
-如下面的代码，就是接收两个参数，而接收多个参数需要使用 `@Param` 注解，那么为什么要加该注解呢？这个问题要弄明白就必须来研究Mybatis 底层对于这些参数是如何处理的。
+如下面的代码，就是接收两个参数，而接收多个参数需要使用 `@Param` 注解，那么为什么要加该注解呢？这个问题要弄明白就必须来研究Mybatis
+底层对于这些参数是如何处理的。
 
 ```java
 User select(@Param("username") String username,@Param("password") String password);
 ```
 
 ```xml
+
 <select id="select" resultType="user">
-	select *
+    select *
     from tb_user
-    where 
-    	username=#{username}
-    	and password=#{password}
+    where
+    username=#{username}
+    and password=#{password}
 </select>
 ```
 
 我们在接口方法中定义多个参数，Mybatis 会将这些参数封装成 Map 集合对象，值就是参数值，而键在没有使用 `@Param` 注解时有以下命名规则：
 
-* 以 arg 开头  ：第一个参数就叫 arg0，第二个参数就叫 arg1，以此类推。如：
+* 以 arg 开头 ：第一个参数就叫 arg0，第二个参数就叫 arg1，以此类推。如：
 
   > map.put("arg0"，参数值1);
   >

@@ -16,7 +16,7 @@ export default hopeTheme({
 
     // iconAssets: "fontawesome",
     // iconPrefix: "fa-brands fa-",
-    iconAssets: '//at.alicdn.com/t/c/font_4647410_fxcow7fcjtm.css',
+    iconAssets: '//at.alicdn.com/t/c/font_4647410_dklnvwb9px.css',
     // iconPrefix: "iconfont icon-",
 
 

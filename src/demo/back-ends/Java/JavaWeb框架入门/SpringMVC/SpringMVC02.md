@@ -5,7 +5,7 @@ order: 2
 category: SpringMVC
 ---
 
-## 今日内容
+## 学习内容
 
 - [ ] 能够掌握SSM整合的流程
 - [ ] 能够编写SSM整合功能模块类

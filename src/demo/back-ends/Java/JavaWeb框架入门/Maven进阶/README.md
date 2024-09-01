@@ -1,6 +1,6 @@
 ---
 title: Maven 进阶
-icon: java
+icon: maven
 index: false
 ---
 

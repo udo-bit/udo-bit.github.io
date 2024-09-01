@@ -5,7 +5,7 @@ category: Spring框架
 order: 3
 ---
 
-## 今日目标
+## 学习目标
 
 - [ ] 能够理解AOP的作用
 - [ ] 能够完成AOP的入门案例

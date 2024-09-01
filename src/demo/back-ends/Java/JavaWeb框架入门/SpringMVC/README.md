@@ -1,6 +1,6 @@
 ---
 title: SpringMVC
-icon: java
+icon: spring1
 index: false
 order: 2
 ---
