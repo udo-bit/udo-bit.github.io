@@ -7,6 +7,7 @@ export default hopeTheme({
     hostname: "https://mister-hope.github.io",
     favicon: "/logo-custom.png",
 
+
     author: {
         name: "GXL",
         url: "https://www.cnblogs.com/feel-myself",
@@ -106,6 +107,7 @@ export default hopeTheme({
         components: {
             components: ["Badge", "VPCard", 'PDF'],
         },
+        
 
         // These features are enabled for demo, only preserve features you need here
         mdEnhance: {
