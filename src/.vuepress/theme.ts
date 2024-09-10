@@ -107,7 +107,7 @@ export default hopeTheme({
         components: {
             components: ["Badge", "VPCard", 'PDF'],
         },
-        
+
 
         // These features are enabled for demo, only preserve features you need here
         mdEnhance: {
