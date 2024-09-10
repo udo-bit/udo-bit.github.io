@@ -1,3 +1,11 @@
+---
+title: RabbitMQ
+icon: code
+category: MQ
+order: 1
+---
+
+
 # RabbitMQ
 
 
