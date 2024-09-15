@@ -4,5 +4,5 @@ icon: mybatisplus
 index: false
 ---
 
-<Catalogue />
+<Catalog />
 
