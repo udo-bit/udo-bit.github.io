@@ -764,7 +764,7 @@ public class AmqpClient implements ApplicationRunner {
 - 在**创建订阅**对话框，设置参数后单击**确认**。
 
   | 参数         | 说明                       |
-    | ------------ | -------------------------- |
+      | ------------ | -------------------------- |
   | 产品         | 选择自己的产品（智能手表） |
   | 订阅类型     | 选择**AMQP**               |
   | 消费组       | 选择**默认消费组**         |
@@ -976,65 +976,46 @@ private void processMessage(Message message) {
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    0,
-        "data"
-:
-    {
-        "page"
-    :
-        0,
-            "pageSize"
-    :
-        0,
-            "pages"
-    :
-        0,
-            "records"
-    :
-        [
-            {
-                "accessLocation": "",
-                "adminCreator": "",
-                "alarmTime": "",
-                "createBy": 0,
-                "createDay": "",
-                "createTime": "",
-                "createType": 0,
-                "creator": "",
-                "data": "",
-                "dataState": "",
-                "dataValue": "",
-                "deviceName": "",
-                "functionName": "",
-                "id": 0,
-                "noteName": "",
-                "processingResult": "",
-                "processingTime": "",
-                "processor": "",
-                "productId": "",
-                "productName": "",
-                "remark": "",
-                "status": 0,
-                "updateBy": 0,
-                "updateTime": "",
-                "updater": ""
-            }
-        ],
-            "total"
-    :
-        0
-    }
-,
-    "msg"
-:
-    "",
-        "operationTime"
-:
-    ""
+  "code": 0,
+  "data": {
+    "page": 0,
+    "pageSize": 0,
+    "pages": 0,
+    "records": [
+      {
+        "accessLocation": "",
+        "adminCreator": "",
+        "alarmTime": "",
+        "createBy": 0,
+        "createDay": "",
+        "createTime": "",
+        "createType": 0,
+        "creator": "",
+        "data": "",
+        "dataState": "",
+        "dataValue": "",
+        "deviceName": "",
+        "functionName": "",
+        "id": 0,
+        "noteName": "",
+        "processingResult": "",
+        "processingTime": "",
+        "processor": "",
+        "productId": "",
+        "productName": "",
+        "remark": "",
+        "status": 0,
+        "updateBy": 0,
+        "updateTime": "",
+        "updater": ""
+      }
+    ],
+    "total": 0
+  },
+  "msg": "",
+  "operationTime": ""
 }
 ```
 
@@ -1222,34 +1203,28 @@ public class DeviceDataServiceImpl implements DeviceDataService {
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    200,
-        "msg"
-:
-    "操作成功",
-        "data"
-:
-    [
-        {
-            "id": "1",
-            "createTime": "2023-09-26 16:10:27",
-            "updateTime": "2023-09-26 16:10:27",
-            "createBy": "1671403256519078153",
-            "name": "1楼",
-            "code": 1
-        },
-        {
-            "id": "2",
-            "createTime": "2023-09-26 17:37:20",
-            "updateTime": "2023-09-26 17:37:20",
-            "createBy": "1671403256519078138",
-            "name": "2楼",
-            "code": 2
-        }
-    ]
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      "id": "1",
+      "createTime": "2023-09-26 16:10:27",
+      "updateTime": "2023-09-26 16:10:27",
+      "createBy": "1671403256519078153",
+      "name": "1楼",
+      "code": 1
+    },
+    {
+      "id": "2",
+      "createTime": "2023-09-26 17:37:20",
+      "updateTime": "2023-09-26 17:37:20",
+      "createBy": "1671403256519078138",
+      "name": "2楼",
+      "code": 2
+    }
+  ]
 }
 ```
 
@@ -1267,121 +1242,121 @@ public class DeviceDataServiceImpl implements DeviceDataService {
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    200,
-        "msg"
-:
-    "操作成功",
-        "data"
-:
-    [
-        {//房间数据
-            "id": "1",
-            "createTime": "2023-09-26 17:38:25",
-            "updateTime": "2023-09-26 17:38:25",
-            "createBy": "1671403256519078138",
-            "code": "101",
-            "sort": 1,
-            "floorId": "1",
-            "bedVoList": [//床位列表
-                {//床位
-                    "id": "1",
-                    "bedNumber": "101-1",
-                    "bedStatus": 1,
-                    "roomId": "1",
-                    "name": "马克",
-                    "elderId": "134",
-                    "deviceVos": [//床位中的设备列表
-                        {
-                            "id": "136",
-                            "deviceName": "sm_01",
-                            "deviceId": "jTYVdXNE8GZZMWTlKN9Tj0rk00",
-                            "productKey": "j0rkzrUrf05",
-                            "productName": "睡眠监测带",
-                            "deviceDataVos": [//设备中的数据
-                                {
-                                    "id": "338546",
-                                    "createTime": "2023-10-11 19:13:59",
-                                    "updateTime": "2023-10-11 19:13:59",
-                                    "createBy": "1",
-                                    "deviceName": "sm_01",
-                                    "noteName": "睡眠监测带_01",
-                                    "productId": "j0rkzrUrf05",
-                                    "productName": "睡眠监测带",
-                                    "functionName": "HeartRate",
-                                    "accessLocation": "1楼,101,101-1",
-                                    "dataValue": "88",
-                                    "alarmTime": "2023-10-11 19:13:59",
-                                    "status": 0
-                                },
-                                {
-                                    "id": "338550",
-                                    "createTime": "2023-10-11 19:13:59",
-                                    "updateTime": "2023-10-11 19:13:59",
-                                    "createBy": "1",
-                                    "deviceName": "sm_01",
-                                    "noteName": "睡眠监测带_01",
-                                    "productId": "j0rkzrUrf05",
-                                    "productName": "睡眠监测带",
-                                    "functionName": "lichuangcishu",
-                                    "accessLocation": "1楼,101,101-1",
-                                    "dataValue": "15",
-                                    "alarmTime": "2023-10-11 19:13:59",
-                                    "status": 0
-                                }
-                            ]
-                        }
-                    ],
-                    "status": 0
-                }
-            ],
-            "deviceVos": [//房间中的设备
+  "code": 200,
+  "msg": "操作成功",
+  "data": [
+    {
+      //房间数据
+      "id": "1",
+      "createTime": "2023-09-26 17:38:25",
+      "updateTime": "2023-09-26 17:38:25",
+      "createBy": "1671403256519078138",
+      "code": "101",
+      "sort": 1,
+      "floorId": "1",
+      "bedVoList": [
+        //床位列表
+        {
+          //床位
+          "id": "1",
+          "bedNumber": "101-1",
+          "bedStatus": 1,
+          "roomId": "1",
+          "name": "马克",
+          "elderId": "134",
+          "deviceVos": [
+            //床位中的设备列表
+            {
+              "id": "136",
+              "deviceName": "sm_01",
+              "deviceId": "jTYVdXNE8GZZMWTlKN9Tj0rk00",
+              "productKey": "j0rkzrUrf05",
+              "productName": "睡眠监测带",
+              "deviceDataVos": [
+                //设备中的数据
                 {
-                    "id": "135",
-                    "deviceName": "Smoke_alarm_03",
-                    "deviceId": "Z1Uaf123jnc1Cl8oAhGmj0rk00",
-                    "productKey": "j0rkHpZoAQ3",
-                    "productName": "烟雾报警器",
-                    "deviceDataVos": [
-                        {
-                            "id": "338537",
-                            "createTime": "2023-10-11 19:13:54",
-                            "updateTime": "2023-10-11 19:13:54",
-                            "createBy": "1",
-                            "deviceName": "Smoke_alarm_03",
-                            "noteName": "智能烟感03",
-                            "productId": "j0rkHpZoAQ3",
-                            "productName": "烟雾报警器",
-                            "functionName": "CurrentHumidity",
-                            "accessLocation": "1楼,101",
-                            "dataValue": "68",
-                            "alarmTime": "2023-10-11 19:13:54",
-                            "status": 0
-                        },
-                        {
-                            "id": "338539",
-                            "createTime": "2023-10-11 19:13:54",
-                            "updateTime": "2023-10-11 19:13:54",
-                            "createBy": "1",
-                            "deviceName": "Smoke_alarm_03",
-                            "noteName": "智能烟感03",
-                            "productId": "j0rkHpZoAQ3",
-                            "productName": "烟雾报警器",
-                            "functionName": "BatteryLevel",
-                            "accessLocation": "1楼,101",
-                            "dataValue": "-1990",
-                            "alarmTime": "2023-10-11 19:13:54",
-                            "status": 0
-                        }
-                    ]
+                  "id": "338546",
+                  "createTime": "2023-10-11 19:13:59",
+                  "updateTime": "2023-10-11 19:13:59",
+                  "createBy": "1",
+                  "deviceName": "sm_01",
+                  "noteName": "睡眠监测带_01",
+                  "productId": "j0rkzrUrf05",
+                  "productName": "睡眠监测带",
+                  "functionName": "HeartRate",
+                  "accessLocation": "1楼,101,101-1",
+                  "dataValue": "88",
+                  "alarmTime": "2023-10-11 19:13:59",
+                  "status": 0
+                },
+                {
+                  "id": "338550",
+                  "createTime": "2023-10-11 19:13:59",
+                  "updateTime": "2023-10-11 19:13:59",
+                  "createBy": "1",
+                  "deviceName": "sm_01",
+                  "noteName": "睡眠监测带_01",
+                  "productId": "j0rkzrUrf05",
+                  "productName": "睡眠监测带",
+                  "functionName": "lichuangcishu",
+                  "accessLocation": "1楼,101,101-1",
+                  "dataValue": "15",
+                  "alarmTime": "2023-10-11 19:13:59",
+                  "status": 0
                 }
-            ],
-            "status": 0
+              ]
+            }
+          ],
+          "status": 0
         }
-    ]
+      ],
+      "deviceVos": [
+        //房间中的设备
+        {
+          "id": "135",
+          "deviceName": "Smoke_alarm_03",
+          "deviceId": "Z1Uaf123jnc1Cl8oAhGmj0rk00",
+          "productKey": "j0rkHpZoAQ3",
+          "productName": "烟雾报警器",
+          "deviceDataVos": [
+            {
+              "id": "338537",
+              "createTime": "2023-10-11 19:13:54",
+              "updateTime": "2023-10-11 19:13:54",
+              "createBy": "1",
+              "deviceName": "Smoke_alarm_03",
+              "noteName": "智能烟感03",
+              "productId": "j0rkHpZoAQ3",
+              "productName": "烟雾报警器",
+              "functionName": "CurrentHumidity",
+              "accessLocation": "1楼,101",
+              "dataValue": "68",
+              "alarmTime": "2023-10-11 19:13:54",
+              "status": 0
+            },
+            {
+              "id": "338539",
+              "createTime": "2023-10-11 19:13:54",
+              "updateTime": "2023-10-11 19:13:54",
+              "createBy": "1",
+              "deviceName": "Smoke_alarm_03",
+              "noteName": "智能烟感03",
+              "productId": "j0rkHpZoAQ3",
+              "productName": "烟雾报警器",
+              "functionName": "BatteryLevel",
+              "accessLocation": "1楼,101",
+              "dataValue": "-1990",
+              "alarmTime": "2023-10-11 19:13:54",
+              "status": 0
+            }
+          ]
+        }
+      ],
+      "status": 0
+    }
+  ]
 }
 ```
 
@@ -1830,49 +1805,33 @@ private void processMessage(Message message) {
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    200,
-        "msg"
-:
-    "操作成功",
-        "data"
-:
-    {
-        "total"
-    :
-        "456",
-            "pageSize"
-    :
-        10,
-            "pages"
-    :
-        "46",
-            "page"
-    :
-        1,
-            "records"
-    :
-        [
-            {
-                "id": "352069",
-                "createTime": "2023-10-12 15:41:31",
-                "updateTime": "2023-10-12 15:41:31",
-                "createBy": "1",
-                "deviceName": "watch_08",
-                "noteName": "智能定位手表",
-                "productId": "j0rkM5mCanO",
-                "productName": "健康定位报警手表",
-                "functionName": "HeartRate",
-                "accessLocation": "马克",
-                "dataValue": "86",
-                "alarmTime": "2023-10-12 15:41:31",
-                "status": 0
-            }
-        ]
-    }
+  "code": 200,
+  "msg": "操作成功",
+  "data": {
+    "total": "456",
+    "pageSize": 10,
+    "pages": "46",
+    "page": 1,
+    "records": [
+      {
+        "id": "352069",
+        "createTime": "2023-10-12 15:41:31",
+        "updateTime": "2023-10-12 15:41:31",
+        "createBy": "1",
+        "deviceName": "watch_08",
+        "noteName": "智能定位手表",
+        "productId": "j0rkM5mCanO",
+        "productName": "健康定位报警手表",
+        "functionName": "HeartRate",
+        "accessLocation": "马克",
+        "dataValue": "86",
+        "alarmTime": "2023-10-12 15:41:31",
+        "status": 0
+      }
+    ]
+  }
 }
 ```
 

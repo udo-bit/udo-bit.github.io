@@ -226,7 +226,10 @@ var options = {
 // 2. 建立MQTT连接
 const client = mqtt.getAliyunIotMqttClient(options);
 //订阅云端指令Topic
-client.subscribe(`/${options.productKey}/${options.deviceName}/user/get`)
+client.subscribe(`/${options.productKey
+}/${
+    options.deviceName
+}/user/get`)
 client.subscribe(`/sys/${options.productKey}/${options.deviceName}/thing/event/property/post_reply`)
 client.on('message', function (topic, message) {
     console.log("topic " + topic)
@@ -234,8 +237,10 @@ client.on('message', function (topic, message) {
 })
 
 setInterval(function () {
-    // 3.定时上报温湿度数据
-    client.publish(`/sys/${options.productKey}/${options.deviceName}/thing/event/property/post`, getPostData(), {qos: 0});
+// 3.定时上报温湿度数据
+    client.publish(`/sys/${options.productKey}/${options.deviceName}/thing/event/property/post`, getPostData(), {
+        qos: 0
+    });
 }, 5 * 1000);
 
 var power = 1000;
@@ -248,7 +253,6 @@ function getPostData() {
             PowerConsumption: power--
         },
         method: "thing.event.property.post"
-
     }
     console.log("payloadJson " + JSON.stringify(payloadJson))
     return JSON.stringify(payloadJson);
@@ -588,70 +592,47 @@ public class DeviceData extends BaseEntity {
 
 **请求示例**:
 
-```javascript
+```json lines
 {
-    "currentPage"
-:
-    0,
-        "pageSize"
-:
-    0,
+  "currentPage": 0,
+  "pageSize": 0,
 }
 ```
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    200,
-        "msg"
-:
-    "操作成功",
-        "data"
-:
-    {
-        "currentPage"
-    :
-        1,
-            "list"
-    :
+  "code": 200,
+  "msg": "操作成功",
+  "data": {
+    "currentPage": 1,
+    "list": {
+      "productInfo": [
         {
-            "productInfo"
-        :
-            [
-                {
-                    "authType": "secret",
-                    "dataFormat": 1,
-                    "deviceCount": 0,
-                    "gmtCreate": "1699832992000",
-                    "nodeType": 0,
-                    "productKey": "j0rkhjvtSko",
-                    "productName": "智能音箱"
-                },
-                {
-                    "authType": "secret",
-                    "dataFormat": 1,
-                    "deviceCount": 4,
-                    "gmtCreate": "1696692518000",
-                    "nodeType": 0,
-                    "productKey": "j0rk9ChOhVe",
-                    "productName": "智能手表"
-                }
-            ]
+          "authType": "secret",
+          "dataFormat": 1,
+          "deviceCount": 0,
+          "gmtCreate": "1699832992000",
+          "nodeType": 0,
+          "productKey": "j0rkhjvtSko",
+          "productName": "智能音箱"
+        },
+        {
+          "authType": "secret",
+          "dataFormat": 1,
+          "deviceCount": 4,
+          "gmtCreate": "1696692518000",
+          "nodeType": 0,
+          "productKey": "j0rk9ChOhVe",
+          "productName": "智能手表"
         }
-    ,
-        "pageCount"
-    :
-        1,
-            "pageSize"
-    :
-        100,
-            "total"
-    :
-        12
-    }
+      ]
+    },
+    "pageCount": 1,
+    "pageSize": 100,
+    "total": 12
+  }
 }
 ```
 
@@ -663,67 +644,44 @@ public class DeviceData extends BaseEntity {
 
 **请求示例**:
 
-```javascript
+```json lines
 {
-    "bindingLocation"
-:
-    "7",  //绑定的位置
-        "deviceDescription"
-:
-    "1,7", //位置描述
-        "deviceName"
-:
-    "yx_01", //设备名称
-        "locationType"
-:
-    1, //位置类型
-        "nickname"
-:
-    "音箱_01", //设备昵称
-        "physicalLocationType"
-:
-    1, //位置类别
-        "productKey"
-:
-    "j0rkhjvtSko",//产品key
-        "registerDeviceRequest"
-:
-    {
-        "deviceName"
-    :
-        "yx_01",//设备名称
-            "nickname"
-    :
-        "音箱_01",//设备昵称
-            "productKey"
-    :
-        "j0rkhjvtSko"//产品key
-    }
-,
-    "remark"
-:
-    "1楼,107"//位置描述
+  "bindingLocation": "7",
+  //绑定的位置
+  "deviceDescription": "1,7",
+  //位置描述
+  "deviceName": "yx_01",
+  //设备名称
+  "locationType": 1,
+  //位置类型
+  "nickname": "音箱_01",
+  //设备昵称
+  "physicalLocationType": 1,
+  //位置类别
+  "productKey": "j0rkhjvtSko",
+  //产品key
+  "registerDeviceRequest": {
+    "deviceName": "yx_01",
+    //设备名称
+    "nickname": "音箱_01",
+    //设备昵称
+    "productKey": "j0rkhjvtSko"
+    //产品key
+  },
+  "remark": "1楼,107"
+  //位置描述
 }
 ```
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    0,
-        "data"
-:
-    {
-    }
-,
-    "msg"
-:
-    "",
-        "operationTime"
-:
-    ""
+  "code": 0,
+  "data": {
+  },
+  "msg": "",
+  "operationTime": ""
 }
 ```
 
@@ -735,109 +693,88 @@ public class DeviceData extends BaseEntity {
 
 **请求示例**:
 
-```javascript
+```json lines
 {
-    "currentPage"
-:
-    0,
-        "pageSize"
-:
-    0,
-        "productKey"
-:
-    ""//产品key
+  "currentPage": 0,
+  "pageSize": 0,
+  "productKey": ""
+  //产品key
 }
 ```
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    200,
-        "msg"
-:
-    "操作成功",
-        "data"
-:
-    {
-        "total"
-    :
-        "4",
-            "pageSize"
-    :
-        10,
-            "pages"
-    :
-        "1",
-            "page"
-    :
-        1,
-            "records"
-    :
-        [
-            {
-                "id": "140",
-                "createTime": "2023-10-13 10:43:10",
-                "updateTime": "2023-10-13 10:43:10",
-                "createBy": "1671403256519078138",
-                "remark": "哈哈",
-                "creator": "超级管理员",
-                "locationType": 0,
-                "bindingLocation": "139",
-                "deviceName": "watch_03",
-                "physicalLocationType": -1,
-                "deviceId": "ozgUYc3PSd239inJNiRY",
-                "deviceSecret": "18d225b629e401b3faa999a9be62359d",
-                "gmtCreate": "Fri, 13-Oct-2023 02:43:10 GMT",
-                "iotId": "ozgUYc3PSd239inJNiRYj0rk00",
-                "nickname": "智能手表03",
-                "productKey": "j0rkM5mCanO",
-                "productName": "健康定位报警手表",
-                "utcCreate": "2023-10-13T02:43:10.000Z"
-            },
-            {
-                "id": "139",
-                "createTime": "2023-10-13 10:42:44",
-                "updateTime": "2023-10-13 10:42:44",
-                "createBy": "1671403256519078138",
-                "remark": "陈康伯",
-                "creator": "超级管理员",
-                "locationType": 0,
-                "bindingLocation": "140",
-                "deviceName": "watch_02",
-                "physicalLocationType": -1,
-                "deviceId": "UJZar5CPXXGDL2X1NjI9",
-                "deviceSecret": "4d822b5f5d29321abceda70cd6b6cada",
-                "gmtCreate": "Fri, 13-Oct-2023 02:42:44 GMT",
-                "iotId": "UJZar5CPXXGDL2X1NjI9j0rk00",
-                "nickname": "智能手表02",
-                "productKey": "j0rkM5mCanO",
-                "productName": "健康定位报警手表",
-                "utcCreate": "2023-10-13T02:42:44.000Z"
-            },
-            {
-                "id": "137",
-                "createTime": "2023-10-11 14:34:32",
-                "createBy": "1671403256519078138",
-                "remark": "马克",
-                "creator": "超级管理员",
-                "locationType": 0,
-                "bindingLocation": "134",
-                "deviceName": "watch_08",
-                "physicalLocationType": -1,
-                "deviceId": "OJrGD42y7A0L0WVL7EBw",
-                "deviceSecret": "06e979fb4e9a62867c219f1d5c194481",
-                "gmtCreate": "Wed, 11-Oct-2023 06:34:32 GMT",
-                "iotId": "OJrGD42y7A0L0WVL7EBwj0rk00",
-                "nickname": "智能定位手表",
-                "productKey": "j0rkM5mCanO",
-                "productName": "健康定位报警手表",
-                "utcCreate": "2023-10-11T06:34:32.000Z"
-            }
-        ]
-    }
+  "code": 200,
+  "msg": "操作成功",
+  "data": {
+    "total": "4",
+    "pageSize": 10,
+    "pages": "1",
+    "page": 1,
+    "records": [
+      {
+        "id": "140",
+        "createTime": "2023-10-13 10:43:10",
+        "updateTime": "2023-10-13 10:43:10",
+        "createBy": "1671403256519078138",
+        "remark": "哈哈",
+        "creator": "超级管理员",
+        "locationType": 0,
+        "bindingLocation": "139",
+        "deviceName": "watch_03",
+        "physicalLocationType": -1,
+        "deviceId": "ozgUYc3PSd239inJNiRY",
+        "deviceSecret": "18d225b629e401b3faa999a9be62359d",
+        "gmtCreate": "Fri, 13-Oct-2023 02:43:10 GMT",
+        "iotId": "ozgUYc3PSd239inJNiRYj0rk00",
+        "nickname": "智能手表03",
+        "productKey": "j0rkM5mCanO",
+        "productName": "健康定位报警手表",
+        "utcCreate": "2023-10-13T02:43:10.000Z"
+      },
+      {
+        "id": "139",
+        "createTime": "2023-10-13 10:42:44",
+        "updateTime": "2023-10-13 10:42:44",
+        "createBy": "1671403256519078138",
+        "remark": "陈康伯",
+        "creator": "超级管理员",
+        "locationType": 0,
+        "bindingLocation": "140",
+        "deviceName": "watch_02",
+        "physicalLocationType": -1,
+        "deviceId": "UJZar5CPXXGDL2X1NjI9",
+        "deviceSecret": "4d822b5f5d29321abceda70cd6b6cada",
+        "gmtCreate": "Fri, 13-Oct-2023 02:42:44 GMT",
+        "iotId": "UJZar5CPXXGDL2X1NjI9j0rk00",
+        "nickname": "智能手表02",
+        "productKey": "j0rkM5mCanO",
+        "productName": "健康定位报警手表",
+        "utcCreate": "2023-10-13T02:42:44.000Z"
+      },
+      {
+        "id": "137",
+        "createTime": "2023-10-11 14:34:32",
+        "createBy": "1671403256519078138",
+        "remark": "马克",
+        "creator": "超级管理员",
+        "locationType": 0,
+        "bindingLocation": "134",
+        "deviceName": "watch_08",
+        "physicalLocationType": -1,
+        "deviceId": "OJrGD42y7A0L0WVL7EBw",
+        "deviceSecret": "06e979fb4e9a62867c219f1d5c194481",
+        "gmtCreate": "Wed, 11-Oct-2023 06:34:32 GMT",
+        "iotId": "OJrGD42y7A0L0WVL7EBwj0rk00",
+        "nickname": "智能定位手表",
+        "productKey": "j0rkM5mCanO",
+        "productName": "健康定位报警手表",
+        "utcCreate": "2023-10-11T06:34:32.000Z"
+      }
+    ]
+  }
 }
 ```
 
@@ -849,109 +786,47 @@ public class DeviceData extends BaseEntity {
 
 **请求示例**:
 
-```javascript
+```json lines
 {
-    "iotId"
-:
-    "",
-        "productKey"
-:
-    ""
+  "iotId": "",
+  "productKey": ""
 }
 ```
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    200,
-        "msg"
-:
-    "操作成功",
-        "data"
-:
-    {
-        "id"
-    :
-        "140",
-            "createTime"
-    :
-        "2023-10-13 10:43:10",
-            "updateTime"
-    :
-        "2023-10-13 10:43:10",
-            "createBy"
-    :
-        "1671403256519078138",
-            "remark"
-    :
-        "哈哈",
-            "creator"
-    :
-        "超级管理员",
-            "locationType"
-    :
-        0,
-            "bindingLocation"
-    :
-        "139",
-            "deviceName"
-    :
-        "watch_03",
-            "physicalLocationType"
-    :
-        -1,
-            "deviceId"
-    :
-        "ozgUYc3PSd239inJNiRYj0rk00",
-            "deviceSecret"
-    :
-        "18d225b629e401b3faa999a9be62359d",
-            "gmtActive"
-    :
-        "",
-            "gmtCreate"
-    :
-        "2023-10-13 10:43:10",
-            "gmtOnline"
-    :
-        "",
-            "iotId"
-    :
-        "ozgUYc3PSd239inJNiRYj0rk00",
-            "nickname"
-    :
-        "智能手表03",
-            "nodeType"
-    :
-        0,
-            "owner"
-    :
-        true,
-            "productKey"
-    :
-        "j0rkM5mCanO",
-            "productName"
-    :
-        "健康定位报警手表",
-            "region"
-    :
-        "cn-shanghai",
-            "status"
-    :
-        "UNACTIVE",
-            "utcActive"
-    :
-        "",
-            "utcCreate"
-    :
-        "2023-10-13T02:43:10.000Z",
-            "utcOnline"
-    :
-        ""
-    }
+  "code": 200,
+  "msg": "操作成功",
+  "data": {
+    "id": "140",
+    "createTime": "2023-10-13 10:43:10",
+    "updateTime": "2023-10-13 10:43:10",
+    "createBy": "1671403256519078138",
+    "remark": "哈哈",
+    "creator": "超级管理员",
+    "locationType": 0,
+    "bindingLocation": "139",
+    "deviceName": "watch_03",
+    "physicalLocationType": -1,
+    "deviceId": "ozgUYc3PSd239inJNiRYj0rk00",
+    "deviceSecret": "18d225b629e401b3faa999a9be62359d",
+    "gmtActive": "",
+    "gmtCreate": "2023-10-13 10:43:10",
+    "gmtOnline": "",
+    "iotId": "ozgUYc3PSd239inJNiRYj0rk00",
+    "nickname": "智能手表03",
+    "nodeType": 0,
+    "owner": true,
+    "productKey": "j0rkM5mCanO",
+    "productName": "健康定位报警手表",
+    "region": "cn-shanghai",
+    "status": "UNACTIVE",
+    "utcActive": "",
+    "utcCreate": "2023-10-13T02:43:10.000Z",
+    "utcOnline": ""
+  }
 }
 ```
 
@@ -963,35 +838,22 @@ public class DeviceData extends BaseEntity {
 
 **请求示例**:
 
-```javascript
+```json lines
 {
-    "deviceName"
-:
-    "",
-        "productKey"
-:
-    ""
+  "deviceName": "",
+  "productKey": ""
 }
 ```
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    0,
-        "data"
-:
-    {
-    }
-,
-    "msg"
-:
-    "",
-        "operationTime"
-:
-    ""
+  "code": 0,
+  "data": {
+  },
+  "msg": "",
+  "operationTime": ""
 }
 ```
 
@@ -1003,32 +865,21 @@ public class DeviceData extends BaseEntity {
 
 **请求示例**:
 
-```javascript
+```json lines
 {
-    "productKey"
-:
-    "",
+  "productKey": "",
 }
 ```
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    0,
-        "data"
-:
-    {
-    }
-,
-    "msg"
-:
-    "",
-        "operationTime"
-:
-    ""
+  "code": 0,
+  "data": {
+  },
+  "msg": "",
+  "operationTime": ""
 }
 ```
 
@@ -1040,73 +891,45 @@ public class DeviceData extends BaseEntity {
 
 **请求示例**:
 
-```javascript
+```json lines
 {
-    "bindingLocation"
-:
-    "10",  //绑定的位置
-        "deviceDescription"
-:
-    "1,7,10", //位置具体参数
-        "deviceName"
-:
-    "ds_03", //设备名称
-        "id"
-:
-    "149", //主键
-        "iotId"
-:
-    "LK0dHs1covCX1Zsf2j95j0rk00",//设备id
-        "locationType"
-:
-    1,//位置列表  0 老人   1 位置
-        "nickname"
-:
-    "电视8号", //设备昵称
-        "physicalLocationType"
-:
-    2, //物理位置
-        "productKey"
-:
-    "j0rk7e6hJkx", //产品key
-        "registerDeviceRequest"
-:
-    { //注册设备请求对象
-        "deviceName"
-    :
-        "ds_03",
-            "nickname"
-    :
-        "电视8号",
-            "productKey"
-    :
-        "j0rk7e6hJkx"
-    }
-,
-    "remark"
-:
-    "1楼,107,107-1"
+  "bindingLocation": "10",
+  //绑定的位置
+  "deviceDescription": "1,7,10",
+  //位置具体参数
+  "deviceName": "ds_03",
+  //设备名称
+  "id": "149",
+  //主键
+  "iotId": "LK0dHs1covCX1Zsf2j95j0rk00",
+  //设备id
+  "locationType": 1,
+  //位置列表  0 老人   1 位置
+  "nickname": "电视8号",
+  //设备昵称
+  "physicalLocationType": 2,
+  //物理位置
+  "productKey": "j0rk7e6hJkx",
+  //产品key
+  "registerDeviceRequest": {
+    //注册设备请求对象
+    "deviceName": "ds_03",
+    "nickname": "电视8号",
+    "productKey": "j0rk7e6hJkx"
+  },
+  "remark": "1楼,107,107-1"
 }
 ```
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    0,
-        "data"
-:
-    {
-    }
-,
-    "msg"
-:
-    "",
-        "operationTime"
-:
-    ""
+  "code": 0,
+  "data": {
+  },
+  "msg": "",
+  "operationTime": ""
 }
 ```
 
@@ -1118,35 +941,22 @@ public class DeviceData extends BaseEntity {
 
 **请求示例**:
 
-```javascript
+```json lines
 {
-    "iotId"
-:
-    "",
-        "productKey"
-:
-    ""
+  "iotId": "",
+  "productKey": ""
 }
 ```
 
 **响应示例**:
 
-```javascript
+```json lines
 {
-    "code"
-:
-    0,
-        "data"
-:
-    {
-    }
-,
-    "msg"
-:
-    "",
-        "operationTime"
-:
-    ""
+  "code": 0,
+  "data": {
+  },
+  "msg": "",
+  "operationTime": ""
 }
 ```
 
