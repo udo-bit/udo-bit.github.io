@@ -39,6 +39,13 @@ logo="/flutter_.svg"
 link="https://www.bczl.xyz/"
 />
 
+<VPCard
+title="阮一峰博客"
+desc="阮一峰的教程博客"
+logo="/ruanyifeng.png"
+link="https://wangdoc.com/"
+/>
+
 ## 素材类
 
 ### 图片
