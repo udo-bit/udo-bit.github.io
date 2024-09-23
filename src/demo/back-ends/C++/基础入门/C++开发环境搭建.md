@@ -16,7 +16,6 @@ category: C++
 * 运行软件
 
 
-
 ## 1 下载软件
 
 在百度搜索 visual studio，选择 如下图中的选项
