@@ -1,0 +1,117 @@
+import{_ as n}from"./plugin-vue_export-helper-DlAUqK2U.js";import{c as s,o as a,d as i}from"./app-Dd2MQ5MX.js";const e={},l=i(`<h2 id="一、条件循环语句-case" tabindex="-1"><a class="header-anchor" href="#一、条件循环语句-case"><span>一、条件循环语句-case</span></a></h2><p>在生产环境中，我们总会遇到一个问题需要根据不同的状况来执行不同的预案，那么我们要处理这样的问题就要首先根据可能出现的情况写出对应预案，根据出现的情况来加载不同的预案。</p><h3 id="_1-1、case介绍" tabindex="-1"><a class="header-anchor" href="#_1-1、case介绍"><span>1.1、case介绍</span></a></h3><p>特点：根据给予的不同条件执行不同的代码块</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>比如你去相亲：你会在脑子里出现以下的预案：</span></span>
+<span class="line"><span>第一眼看到对方父亲，你应该说：伯父好</span></span>
+<span class="line"><span>第一眼看到对方母亲，你应该说：伯母好</span></span>
+<span class="line"><span>第一眼看到对方奶奶，你应该说：奶奶好</span></span>
+<span class="line"><span>。。。。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>而这个例子中触发就是你第一眼看到了对方的谁，预案则是叫什么称呼。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>再来说一个计算机的相关例子---监控内存使用率</span></span>
+<span class="line"><span>内存使用率低于80%，脚本输出： 绿色字体的Memory use xx%</span></span>
+<span class="line"><span>内存使用率大于80%小于90%，脚本输出： 黄色字体的Memory use xx%</span></span>
+<span class="line"><span>内存使用大于90%，脚本输出： 红色字体的Memory use xx%</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_1-2、case语法" tabindex="-1"><a class="header-anchor" href="#_1-2、case语法"><span>1.2、case语法</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>case $var in             定义变量;var代表是变量名</span></span>
+<span class="line"><span>pattern 1)              模式1;用 | 分割多个模式，相当于or</span></span>
+<span class="line"><span>    command1            需要执行的语句</span></span>
+<span class="line"><span>    ;;                  两个分号代表命令结束</span></span>
+<span class="line"><span>pattern 2)</span></span>
+<span class="line"><span>    command2</span></span>
+<span class="line"><span>    ;;</span></span>
+<span class="line"><span>pattern 3)</span></span>
+<span class="line"><span>    command3</span></span>
+<span class="line"><span>    ;;</span></span>
+<span class="line"><span>		  *)              default，不满足以上模式，默认执行*)下面的语句</span></span>
+<span class="line"><span>    command4</span></span>
+<span class="line"><span>    ;;</span></span>
+<span class="line"><span>esac							esac表示case语句结束</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="二、案例" tabindex="-1"><a class="header-anchor" href="#二、案例"><span>二、案例</span></a></h2><p><strong>案例需求</strong> 写一个nginx启动管理脚本，可以实现/etc/init.d/nginx start|stop|restart|status|reload 或者 systemctl start nginx</p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" data-title="" style="--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34;"><pre class="shiki shiki-themes one-light one-dark-pro vp-code"><code><span class="line"><span>#!/bin/bash</span></span>
+<span class="line"><span>#Description: </span></span>
+<span class="line"><span>#Author: www.zutuanxue.com</span></span>
+<span class="line"><span>#Created Time: </span></span>
+<span class="line"><span>#nginx service manage script</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>#variables</span></span>
+<span class="line"><span>nginx_install_doc=/usr/local/nginx</span></span>
+<span class="line"><span>proc=nginx</span></span>
+<span class="line"><span>nginxd=$nginx_install_doc/sbin/nginx</span></span>
+<span class="line"><span>pid_file=$nginx_install_doc/logs/nginx.pid</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span># Source function library.</span></span>
+<span class="line"><span>if [ -f /etc/init.d/functions ];then</span></span>
+<span class="line"><span>   . /etc/init.d/functions</span></span>
+<span class="line"><span>else</span></span>
+<span class="line"><span>   echo &quot;not found file /etc/init.d/functions&quot;</span></span>
+<span class="line"><span>   exit</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>#假如pid文件存在，那么统计一下nginx进程数量</span></span>
+<span class="line"><span>if [ -f $pid_file ];then</span></span>
+<span class="line"><span>   nginx_process_id=\`cat $pid_file\` </span></span>
+<span class="line"><span>   nginx_process_num=\`ps aux |grep $nginx_process_id|grep -v &quot;grep&quot;|wc -l\`</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>#function</span></span>
+<span class="line"><span>start () {</span></span>
+<span class="line"><span>#如果nginx 没有启动直接启动，否则报错 已经启动</span></span>
+<span class="line"><span>if [ -f $pid_file ]&amp;&amp;[ $nginx_process_num -ge 1 ];then</span></span>
+<span class="line"><span>   echo &quot;nginx running...&quot;</span></span>
+<span class="line"><span>else</span></span>
+<span class="line"><span>   #如果pid文件存在，但是没有进程，说明上一次非法关闭了nginx,造成pid文件没有自动删除,所以启动nginx之前先删除旧的pid文件</span></span>
+<span class="line"><span>   if [ -f $pid_file ] &amp;&amp; [ $nginx_process_num -lt 1 ];then</span></span>
+<span class="line"><span>        rm -f $pig_file</span></span>
+<span class="line"><span>	#可以使用两个函数，两种方法来执行命令，并返回执行结果</span></span>
+<span class="line"><span>        #1)daemon</span></span>
+<span class="line"><span>        #2)action   建议这个，简单易用</span></span>
+<span class="line"><span>        </span></span>
+<span class="line"><span>	#echo &quot; nginx start \`daemon $nginxd\` &quot;</span></span>
+<span class="line"><span>        action &quot;nginx start&quot; $nginxd</span></span>
+<span class="line"><span>  fi</span></span>
+<span class="line"><span>  #echo &quot; nginx start \`daemon $nginxd\` &quot;</span></span>
+<span class="line"><span>  action &quot;nginx start&quot; $nginxd</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>stop () {</span></span>
+<span class="line"><span>#判断nginx启动的情况下才会执行关闭，如果没启动直接报错，或者提示用户服务没启动,这里我直接报错的原因是为了给大家演示失败的输出</span></span>
+<span class="line"><span>if [ -f $pid_file ]&amp;&amp;[ $nginx_process_num -ge 1 ];then</span></span>
+<span class="line"><span>     action &quot;nginx stop&quot; killall -s QUIT $proc</span></span>
+<span class="line"><span>     rm -f $pid_file</span></span>
+<span class="line"><span>else</span></span>
+<span class="line"><span>     action &quot;nginx stop&quot; killall -s QUIT $proc 2&gt;/dev/null</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>restart () {</span></span>
+<span class="line"><span>  stop</span></span>
+<span class="line"><span>  sleep 1</span></span>
+<span class="line"><span>  start</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>reload () {</span></span>
+<span class="line"><span>#重载的目的是让主进程重新加载配置文件,但是前提是服务必须开启</span></span>
+<span class="line"><span>#这里先判断服务是否开启，开启就执行加载，没有开启直接报加载错误</span></span>
+<span class="line"><span>if [ -f $pid_file ]&amp;&amp;[ $nginx_process_num -ge 1 ];then</span></span>
+<span class="line"><span>    action &quot;nginx reload&quot; killall -s HUP $proc</span></span>
+<span class="line"><span>else</span></span>
+<span class="line"><span>    action &quot;nginx reload&quot; killall -s HUP $proc 2&gt;/dev/null</span></span>
+<span class="line"><span>fi</span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>status () {</span></span>
+<span class="line"><span>if [ -f $pid_file ]&amp;&amp;[ $nginx_process_num -ge 1 ];then</span></span>
+<span class="line"><span> echo &quot;nginx running...&quot;</span></span>
+<span class="line"><span>else</span></span>
+<span class="line"><span> echo &quot;nginx stop&quot;</span></span>
+<span class="line"><span>fi </span></span>
+<span class="line"><span>}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>#callable</span></span>
+<span class="line"><span>case $1 in </span></span>
+<span class="line"><span>start) start;;</span></span>
+<span class="line"><span>stop) stop;;</span></span>
+<span class="line"><span>restart) restart;;</span></span>
+<span class="line"><span>reload) reload;;</span></span>
+<span class="line"><span>status) status;;</span></span>
+<span class="line"><span>*) echo &quot;USAGE: $0 start|stop|restart|reload|status&quot;;;</span></span>
+<span class="line"><span>esac</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="三、学习视频" tabindex="-1"><a class="header-anchor" href="#三、学习视频"><span>三、学习视频</span></a></h2><p><a href="https://www.bilibili.com/video/BV1Tf4y1v7E2?p=71" target="_blank" rel="noopener noreferrer">视频：case语句介绍</a><a href="https://www.bilibili.com/video/BV1Tf4y1v7E2?p=72" target="_blank" rel="noopener noreferrer">视频：job-Nginx启动管理脚本</a><a href="https://www.bilibili.com/video/BV1Tf4y1v7E2?p=73" target="_blank" rel="noopener noreferrer">视频：函数与case知识图谱总结</a></p>`,12),p=[l];function c(d,r){return a(),s("div",null,p)}const u=n(e,[["render",c],["__file","流程控制-case语句.html.vue"]]),m=JSON.parse('{"path":"/demo/back-ends/Linux/Shell%E8%84%9A%E6%9C%AC/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-case%E8%AF%AD%E5%8F%A5.html","title":"case语句","lang":"en-US","frontmatter":{"title":"case语句","icon":"code","category":"shell","order":20,"description":"一、条件循环语句-case 在生产环境中，我们总会遇到一个问题需要根据不同的状况来执行不同的预案，那么我们要处理这样的问题就要首先根据可能出现的情况写出对应预案，根据出现的情况来加载不同的预案。 1.1、case介绍 特点：根据给予的不同条件执行不同的代码块 1.2、case语法 二、案例 案例需求 写一个nginx启动管理脚本，可以实现/etc/in...","head":[["meta",{"property":"og:url","content":"https://mister-hope.github.io/demo/back-ends/Linux/Shell%E8%84%9A%E6%9C%AC/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6-case%E8%AF%AD%E5%8F%A5.html"}],["meta",{"property":"og:site_name","content":"Utopia"}],["meta",{"property":"og:title","content":"case语句"}],["meta",{"property":"og:description","content":"一、条件循环语句-case 在生产环境中，我们总会遇到一个问题需要根据不同的状况来执行不同的预案，那么我们要处理这样的问题就要首先根据可能出现的情况写出对应预案，根据出现的情况来加载不同的预案。 1.1、case介绍 特点：根据给予的不同条件执行不同的代码块 1.2、case语法 二、案例 案例需求 写一个nginx启动管理脚本，可以实现/etc/in..."}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"en-US"}],["meta",{"property":"og:updated_time","content":"2024-09-21T02:46:20.000Z"}],["meta",{"property":"article:author","content":"GXL"}],["meta",{"property":"article:modified_time","content":"2024-09-21T02:46:20.000Z"}],["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"case语句\\",\\"image\\":[\\"\\"],\\"dateModified\\":\\"2024-09-21T02:46:20.000Z\\",\\"author\\":[{\\"@type\\":\\"Person\\",\\"name\\":\\"GXL\\",\\"url\\":\\"https://www.cnblogs.com/feel-myself\\",\\"email\\":\\"gaoxiaoliang123@126.com\\"}]}"]]},"headers":[{"level":2,"title":"一、条件循环语句-case","slug":"一、条件循环语句-case","link":"#一、条件循环语句-case","children":[{"level":3,"title":"1.1、case介绍","slug":"_1-1、case介绍","link":"#_1-1、case介绍","children":[]},{"level":3,"title":"1.2、case语法","slug":"_1-2、case语法","link":"#_1-2、case语法","children":[]}]},{"level":2,"title":"二、案例","slug":"二、案例","link":"#二、案例","children":[]},{"level":2,"title":"三、学习视频","slug":"三、学习视频","link":"#三、学习视频","children":[]}],"git":{"createdTime":1726886780000,"updatedTime":1726886780000,"contributors":[{"name":"udo-bit","email":"enote_gxl@163.com","commits":1}]},"readingTime":{"minutes":2.99,"words":897},"filePathRelative":"demo/back-ends/Linux/Shell脚本/流程控制-case语句.md","localizedDate":"September 21, 2024","excerpt":"<h2>一、条件循环语句-case</h2>\\n<p>在生产环境中，我们总会遇到一个问题需要根据不同的状况来执行不同的预案，那么我们要处理这样的问题就要首先根据可能出现的情况写出对应预案，根据出现的情况来加载不同的预案。</p>\\n<h3>1.1、case介绍</h3>\\n<p>特点：根据给予的不同条件执行不同的代码块</p>\\n<div class=\\"language- line-numbers-mode\\" data-highlighter=\\"shiki\\" data-ext=\\"\\" data-title=\\"\\" style=\\"--shiki-light:#383A42;--shiki-dark:#abb2bf;--shiki-light-bg:#FAFAFA;--shiki-dark-bg:#282c34\\"><pre class=\\"shiki shiki-themes one-light one-dark-pro vp-code\\"><code><span class=\\"line\\"><span>比如你去相亲：你会在脑子里出现以下的预案：</span></span>\\n<span class=\\"line\\"><span>第一眼看到对方父亲，你应该说：伯父好</span></span>\\n<span class=\\"line\\"><span>第一眼看到对方母亲，你应该说：伯母好</span></span>\\n<span class=\\"line\\"><span>第一眼看到对方奶奶，你应该说：奶奶好</span></span>\\n<span class=\\"line\\"><span>。。。。</span></span>\\n<span class=\\"line\\"><span></span></span>\\n<span class=\\"line\\"><span></span></span>\\n<span class=\\"line\\"><span>而这个例子中触发就是你第一眼看到了对方的谁，预案则是叫什么称呼。</span></span>\\n<span class=\\"line\\"><span></span></span>\\n<span class=\\"line\\"><span>再来说一个计算机的相关例子---监控内存使用率</span></span>\\n<span class=\\"line\\"><span>内存使用率低于80%，脚本输出： 绿色字体的Memory use xx%</span></span>\\n<span class=\\"line\\"><span>内存使用率大于80%小于90%，脚本输出： 黄色字体的Memory use xx%</span></span>\\n<span class=\\"line\\"><span>内存使用大于90%，脚本输出： 红色字体的Memory use xx%</span></span></code></pre>\\n<div class=\\"line-numbers\\" aria-hidden=\\"true\\" style=\\"counter-reset:line-number 0\\"><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div><div class=\\"line-number\\"></div></div></div>","autoDesc":true}');export{u as comp,m as data};
